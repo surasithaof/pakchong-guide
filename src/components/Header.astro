@@ -13,11 +13,11 @@ const { lang, currentUrl } = Astro.props;
 const t = useTranslations(lang);
 
 const navItems = [
-  { href: '/', label: t('nav', 'home') },
-  { href: '/places', label: t('nav', 'places') },
-  { href: '/itineraries', label: t('nav', 'itineraries') },
-  { href: '/transport', label: t('nav', 'transport') },
-  { href: '/about', label: t('nav', 'about') },
+  { href: '/pakchong-guide', label: t('nav', 'home') },
+  { href: '/pakchong-guide/places', label: t('nav', 'places') },
+  { href: '/pakchong-guide/itineraries', label: t('nav', 'itineraries') },
+  { href: '/pakchong-guide/transport', label: t('nav', 'transport') },
+  { href: '/pakchong-guide/about', label: t('nav', 'about') },
 ];
 ---
 
@@ -26,7 +26,7 @@ const navItems = [
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a
-        href={getLocalizedPath('/', lang)}
+        href={getLocalizedPath('/pakchong-guide', lang)}
         class="flex items-center gap-2 text-primary-600 font-semibold text-lg"
       >
         <MapPin class="w-6 h-6" />
