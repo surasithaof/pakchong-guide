@@ -58,7 +58,7 @@ function getPlace(placeId: string): Place | undefined {
     <div class="bg-white border-b">
       <div class="container py-4">
         <a
-          href={getLocalizedPath('/pakchong-guide/itineraries', lang)}
+          href={getLocalizedPath('/itineraries', lang)}
           class="inline-flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors"
         >
           <ArrowLeft class="w-4 h-4" />
@@ -138,7 +138,7 @@ function getPlace(placeId: string): Place | undefined {
                             <div class="flex items-start justify-between gap-4">
                               <div>
                                 <a
-                                  href={getLocalizedPath(`/pakchong-guide/places/${place.slug}`, lang)}
+                                  href={getLocalizedPath(`/places/${place.slug}`, lang)}
                                   class="text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors"
                                 >
                                   {getLocalizedText(place.name, lang)}

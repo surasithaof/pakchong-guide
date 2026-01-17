@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   site: "https://surasithaof.github.io",
-  base: "/pakchong-guide",
+  // base: "/pakchong-guide",
   integrations: [tailwind()],
   i18n: {
     defaultLocale: "th",
