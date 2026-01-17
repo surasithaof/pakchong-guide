@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { languages, defaultLang, useTranslations } from '../../i18n/utils';
+import type { Language } from '../../types';
+import { Heart, Github, Users, Shield, Globe } from 'lucide-astro';
+
+export function getStaticPaths() {
+  return languages
+    .filter((l) => l.code !== defaultLang)
+    .map((l) => ({ params: { lang: l.code } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={t('about', 'title')}>
+  <div class="bg-gray-50 min-h-screen">
+    <div class="bg-white border-b">
+      <div class="container py-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">
+          {t('about', 'title')}
+        </h1>
+      </div>
+    </div>
+
+    <div class="container py-12">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+          <p class="text-lg text-gray-600 leading-relaxed">
+            {t('about', 'description')}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-4">
+              <Heart class="w-6 h-6" />
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Community Driven</h3>
+            <p class="text-gray-600 text-sm">
+              Built by travelers, for travelers. Every recommendation comes from real experiences.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-4">
+              <Shield class="w-6 h-6" />
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">No Sponsored Content</h3>
+            <p class="text-gray-600 text-sm">
+              No paid placements, no hidden ads. Places are listed alphabetically with no paid rankings.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+              <Globe class="w-6 h-6" />
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">7 Languages</h3>
+            <p class="text-gray-600 text-sm">
+              Available in Thai, English, Chinese, Spanish, French, Italian, and Russian.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-4">
+              <Users class="w-6 h-6" />
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Open Source</h3>
+            <p class="text-gray-600 text-sm">
+              Anyone can contribute. Add places, improve translations, or suggest features.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl p-8 text-white text-center">
+          <h2 class="text-2xl font-bold mb-4">{t('about', 'contribute')}</h2>
+          <p class="text-primary-100 mb-6 max-w-md mx-auto">
+            Help us make Pakchong Guide better! Add new places, improve translations, or fix bugs.
+          </p>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-600 rounded-lg font-medium hover:bg-primary-50 transition-colors"
+          >
+            <Github class="w-5 h-5" />
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

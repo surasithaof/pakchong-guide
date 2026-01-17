@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PlaceCard from '../components/PlaceCard.astro';
+import ItineraryCard from '../components/ItineraryCard.astro';
+import { defaultLang, useTranslations, getLocalizedPath } from '../i18n/utils';
+import type { PlacesData, CategoriesData, ItinerariesData } from '../types';
+import { ArrowRight, Map, Compass, Car } from 'lucide-astro';
+
+import placesData from '../../data/places.json';
+import categoriesData from '../../data/categories.json';
+import itinerariesData from '../../data/itineraries.json';
+
+const lang = defaultLang;
+const t = useTranslations(lang);
+
+const { places } = placesData as PlacesData;
+const { categories } = categoriesData as CategoriesData;
+const { itineraries } = itinerariesData as ItinerariesData;
+
+const featuredPlaces = places.slice(0, 4);
+const featuredItineraries = itineraries.slice(0, 2);
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+    <div class="container py-16 md:py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          {t('home', 'hero', 'title')}
+        </h1>
+        <p class="text-xl text-primary-100 mb-8">
+          {t('home', 'hero', 'subtitle')}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={getLocalizedPath('/places', lang)}
+            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-600 rounded-lg font-medium hover:bg-primary-50 transition-colors"
+          >
+            <Map class="w-5 h-5" />
+            {t('nav', 'places')}
+          </a>
+          <a
+            href={getLocalizedPath('/itineraries', lang)}
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-400 transition-colors"
+          >
+            <Compass class="w-5 h-5" />
+            {t('nav', 'itineraries')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Places -->
+  <section class="py-12 md:py-16 bg-gray-50">
+    <div class="container">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold text-gray-900">
+          {t('home', 'featuredPlaces')}
+        </h2>
+        <a
+          href={getLocalizedPath('/places', lang)}
+          class="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 font-medium"
+        >
+          {t('home', 'viewAll')}
+          <ArrowRight class="w-4 h-4" />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          featuredPlaces.map((place) => (
+            <PlaceCard place={place} categories={categories} lang={lang} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Itineraries -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold text-gray-900">
+          {t('itineraries', 'title')}
+        </h2>
+        <a
+          href={getLocalizedPath('/itineraries', lang)}
+          class="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 font-medium"
+        >
+          {t('home', 'viewAll')}
+          <ArrowRight class="w-4 h-4" />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          featuredItineraries.map((itinerary) => (
+            <ItineraryCard itinerary={itinerary} places={places} lang={lang} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="py-12 md:py-16 bg-gray-50">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a
+          href={getLocalizedPath('/places', lang)}
+          class="group p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+        >
+          <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mb-4 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+            <Map class="w-6 h-6" />
+          </div>
+          <h3 class="font-semibold text-lg text-gray-900 mb-2">
+            {t('places', 'title')}
+          </h3>
+          <p class="text-gray-600 text-sm">
+            {places.length}+ places to explore
+          </p>
+        </a>
+
+        <a
+          href={getLocalizedPath('/itineraries', lang)}
+          class="group p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+        >
+          <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mb-4 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+            <Compass class="w-6 h-6" />
+          </div>
+          <h3 class="font-semibold text-lg text-gray-900 mb-2">
+            {t('itineraries', 'title')}
+          </h3>
+          <p class="text-gray-600 text-sm">
+            {itineraries.length} curated trips
+          </p>
+        </a>
+
+        <a
+          href={getLocalizedPath('/transport', lang)}
+          class="group p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+        >
+          <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mb-4 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+            <Car class="w-6 h-6" />
+          </div>
+          <h3 class="font-semibold text-lg text-gray-900 mb-2">
+            {t('transport', 'title')}
+          </h3>
+          <p class="text-gray-600 text-sm">
+            Taxis, buses & more
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

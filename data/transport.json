@@ -1,0 +1,178 @@
+{
+  "taxis": [
+    {
+      "id": "taxi-1",
+      "name": {
+        "th": "พี่สมชาย แท็กซี่เขาใหญ่",
+        "en": "Mr. Somchai Khao Yai Taxi"
+      },
+      "phone": "+66 81 234 5678",
+      "languages": ["th", "en"],
+      "areas": ["pakchong", "khao-yai", "wang-nam-khiao"],
+      "vehicleType": "SUV",
+      "priceEstimate": {
+        "th": "500-2,000 บาท ขึ้นอยู่กับระยะทาง",
+        "en": "500-2,000 THB depending on distance"
+      },
+      "notes": {
+        "th": "บริการรับ-ส่งสนามบิน และทัวร์รายวัน",
+        "en": "Airport pickup and daily tour service available"
+      }
+    },
+    {
+      "id": "taxi-2",
+      "name": {
+        "th": "คุณนิด รถตู้เขาใหญ่",
+        "en": "Khun Nid Van Service"
+      },
+      "phone": "+66 89 876 5432",
+      "languages": ["th"],
+      "areas": ["pakchong", "khao-yai"],
+      "vehicleType": "Van",
+      "priceEstimate": {
+        "th": "1,500-3,000 บาท/วัน",
+        "en": "1,500-3,000 THB/day"
+      },
+      "notes": {
+        "th": "รถตู้ 10 ที่นั่ง เหมาะสำหรับกรุ๊ปทัวร์",
+        "en": "10-seater van, suitable for group tours"
+      }
+    },
+    {
+      "id": "taxi-3",
+      "name": {
+        "th": "เขาใหญ่ทัวร์ แอนด์ แท็กซี่",
+        "en": "Khao Yai Tour & Taxi"
+      },
+      "phone": "+66 92 345 6789",
+      "languages": ["th", "en", "zh"],
+      "areas": ["pakchong", "khao-yai", "korat"],
+      "vehicleType": "Sedan/SUV",
+      "priceEstimate": {
+        "th": "800-2,500 บาท",
+        "en": "800-2,500 THB"
+      },
+      "notes": {
+        "th": "มีไกด์พูดภาษาจีนได้",
+        "en": "Chinese-speaking guide available"
+      }
+    }
+  ],
+  "publicTransport": [
+    {
+      "id": "bus-bkk-pakchong",
+      "type": "bus",
+      "route": {
+        "th": "กรุงเทพฯ (หมอชิต 2) - ปากช่อง",
+        "en": "Bangkok (Mo Chit 2) - Pak Chong"
+      },
+      "operator": {
+        "th": "บริษัท ขนส่ง จำกัด",
+        "en": "Transport Co., Ltd."
+      },
+      "frequency": {
+        "th": "ทุก 30-40 นาที",
+        "en": "Every 30-40 minutes"
+      },
+      "duration": {
+        "th": "ประมาณ 2.5-3 ชั่วโมง",
+        "en": "Approximately 2.5-3 hours"
+      },
+      "price": {
+        "th": "150-250 บาท",
+        "en": "150-250 THB"
+      },
+      "operatingHours": "05:00-21:00",
+      "notes": {
+        "th": "รถปรับอากาศ ชั้น 1 และชั้น 2 มีให้เลือก",
+        "en": "Air-conditioned buses, 1st and 2nd class available"
+      }
+    },
+    {
+      "id": "train-bkk-pakchong",
+      "type": "train",
+      "route": {
+        "th": "กรุงเทพฯ (หัวลำโพง) - ปากช่อง",
+        "en": "Bangkok (Hua Lamphong) - Pak Chong"
+      },
+      "operator": {
+        "th": "การรถไฟแห่งประเทศไทย",
+        "en": "State Railway of Thailand"
+      },
+      "frequency": {
+        "th": "หลายเที่ยวต่อวัน",
+        "en": "Several departures daily"
+      },
+      "duration": {
+        "th": "ประมาณ 3-4 ชั่วโมง",
+        "en": "Approximately 3-4 hours"
+      },
+      "price": {
+        "th": "100-500 บาท ขึ้นอยู่กับชั้น",
+        "en": "100-500 THB depending on class"
+      },
+      "operatingHours": "Various times",
+      "notes": {
+        "th": "แนะนำจองล่วงหน้าในช่วงวันหยุด",
+        "en": "Advance booking recommended during holidays"
+      }
+    },
+    {
+      "id": "minivan-bkk-pakchong",
+      "type": "minivan",
+      "route": {
+        "th": "กรุงเทพฯ (อนุสาวรีย์ชัยฯ) - ปากช่อง",
+        "en": "Bangkok (Victory Monument) - Pak Chong"
+      },
+      "operator": {
+        "th": "รถตู้โดยสารประจำทาง",
+        "en": "Public Minivan Service"
+      },
+      "frequency": {
+        "th": "เมื่อรถเต็ม (ประมาณทุก 20-30 นาที)",
+        "en": "When full (approximately every 20-30 minutes)"
+      },
+      "duration": {
+        "th": "ประมาณ 2-2.5 ชั่วโมง",
+        "en": "Approximately 2-2.5 hours"
+      },
+      "price": {
+        "th": "120-150 บาท",
+        "en": "120-150 THB"
+      },
+      "operatingHours": "06:00-20:00",
+      "notes": {
+        "th": "เร็วกว่ารถบัส แต่ที่นั่งจำกัด",
+        "en": "Faster than bus but limited seating"
+      }
+    }
+  ],
+  "rentalCars": [
+    {
+      "id": "rental-1",
+      "name": {
+        "th": "ปากช่องคาร์เรนท์",
+        "en": "Pakchong Car Rent"
+      },
+      "phone": "+66 44 312 345",
+      "priceRange": {
+        "th": "800-2,000 บาท/วัน",
+        "en": "800-2,000 THB/day"
+      },
+      "vehicleTypes": ["sedan", "suv", "pickup"],
+      "notes": {
+        "th": "ต้องมีใบขับขี่สากลหรือใบขับขี่ไทย",
+        "en": "International or Thai driving license required"
+      }
+    }
+  ],
+  "tips": {
+    "th": "การเดินทางในเขาใหญ่และปากช่องแนะนำให้เช่ารถหรือใช้บริการแท็กซี่ เนื่องจากสถานที่ท่องเที่ยวอยู่กระจายตัวและไม่มีระบบขนส่งสาธารณะครอบคลุม หากเดินทางด้วยรถสาธารณะ รถบัสและรถไฟจะพาไปถึงตัวเมืองปากช่องเท่านั้น จากนั้นต้องต่อแท็กซี่หรือสองแถวไปยังสถานที่ท่องเที่ยว",
+    "en": "Getting around Khao Yai and Pak Chong is best done by rental car or taxi, as attractions are spread out and public transport coverage is limited. Public buses and trains only reach Pak Chong town center. From there, you'll need to take a taxi or songthaew (shared pickup truck) to reach attractions.",
+    "zh": "在考艾和巴冲旅行最好是租车或乘出租车，因为景点分散，公共交通覆盖有限。公共汽车和火车只到达巴冲市中心。从那里，您需要乘坐出租车或双条车前往景点。",
+    "es": "Desplazarse por Khao Yai y Pak Chong es mejor en coche de alquiler o taxi, ya que las atracciones están dispersas y el transporte público es limitado. Los autobuses y trenes solo llegan al centro de Pak Chong.",
+    "fr": "Se déplacer à Khao Yai et Pak Chong se fait idéalement en voiture de location ou en taxi, car les attractions sont dispersées et les transports publics limités. Les bus et trains ne vont qu'au centre-ville de Pak Chong.",
+    "it": "Spostarsi a Khao Yai e Pak Chong è meglio farlo in auto a noleggio o taxi, poiché le attrazioni sono sparse e i trasporti pubblici limitati. Autobus e treni raggiungono solo il centro di Pak Chong.",
+    "ru": "Лучший способ передвижения по Кхао Яй и Пакчонгу — арендованный автомобиль или такси, так как достопримечательности разбросаны, а общественный транспорт ограничен."
+  }
+}

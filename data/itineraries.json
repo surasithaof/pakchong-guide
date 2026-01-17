@@ -1,0 +1,196 @@
+{
+  "itineraries": [
+    {
+      "id": "weekend-nature",
+      "slug": "weekend-nature-escape",
+      "title": {
+        "th": "สุดสัปดาห์ท่องธรรมชาติ",
+        "en": "Weekend Nature Escape",
+        "zh": "周末自然之旅",
+        "es": "Escapada Natural de Fin de Semana",
+        "fr": "Escapade Nature du Week-end",
+        "it": "Fuga Naturale del Fine Settimana",
+        "ru": "Уик-энд на природе"
+      },
+      "duration": {
+        "th": "2 วัน",
+        "en": "2 days",
+        "zh": "2天",
+        "es": "2 días",
+        "fr": "2 jours",
+        "it": "2 giorni",
+        "ru": "2 дня"
+      },
+      "description": {
+        "th": "สัมผัสธรรมชาติอันงดงามของเขาใหญ่ เดินป่าชมน้ำตก และพักผ่อนท่ามกลางบรรยากาศเย็นสบาย",
+        "en": "Experience the beautiful nature of Khao Yai. Explore hiking trails, visit stunning waterfalls, and relax in the cool mountain atmosphere.",
+        "zh": "体验考艾美丽的大自然。探索徒步小径，参观壮观的瀑布，在凉爽的山间氛围中放松身心。",
+        "es": "Experimenta la hermosa naturaleza de Khao Yai. Explora senderos de senderismo, visita cascadas impresionantes y relájate en la fresca atmósfera de montaña.",
+        "fr": "Découvrez la belle nature de Khao Yai. Explorez les sentiers de randonnée, visitez de superbes cascades et détendez-vous dans l'atmosphère fraîche de la montagne.",
+        "it": "Vivi la bellissima natura di Khao Yai. Esplora i sentieri escursionistici, visita cascate mozzafiato e rilassati nella fresca atmosfera montana.",
+        "ru": "Насладитесь прекрасной природой Кхао Яй. Исследуйте пешеходные тропы, посетите потрясающие водопады и отдохните в прохладной горной атмосфере."
+      },
+      "difficulty": "moderate",
+      "stops": [
+        {
+          "placeId": "khao-yai-national-park",
+          "day": 1,
+          "order": 1,
+          "timeSlot": "08:00-17:00",
+          "notes": {
+            "th": "เริ่มตั้งแต่เช้าเพื่อโอกาสเห็นสัตว์ป่าที่ดีที่สุด แนะนำให้เดินป่าไปน้ำตกเหวนรก",
+            "en": "Start early morning for best wildlife viewing. Recommended to hike to Haew Narok Waterfall."
+          }
+        },
+        {
+          "placeId": "primo-piazza",
+          "day": 2,
+          "order": 1,
+          "timeSlot": "10:00-12:00",
+          "notes": {
+            "th": "เดินเที่ยวชมและถ่ายรูป ทานอาหารกลางวัน",
+            "en": "Stroll around and take photos. Have lunch here."
+          }
+        },
+        {
+          "placeId": "pb-valley-khao-yai-winery",
+          "day": 2,
+          "order": 2,
+          "timeSlot": "14:00-17:00",
+          "notes": {
+            "th": "ทัวร์ไร่องุ่นและชิมไวน์",
+            "en": "Take the winery tour and enjoy wine tasting."
+          }
+        }
+      ]
+    },
+    {
+      "id": "family-fun",
+      "slug": "family-fun-adventure",
+      "title": {
+        "th": "ครอบครัวสนุกสุขสันต์",
+        "en": "Family Fun Adventure",
+        "zh": "家庭欢乐探险",
+        "es": "Aventura Familiar Divertida",
+        "fr": "Aventure Familiale Amusante",
+        "it": "Avventura Divertente per la Famiglia",
+        "ru": "Семейное веселое приключение"
+      },
+      "duration": {
+        "th": "1 วัน",
+        "en": "1 day",
+        "zh": "1天",
+        "es": "1 día",
+        "fr": "1 jour",
+        "it": "1 giorno",
+        "ru": "1 день"
+      },
+      "description": {
+        "th": "ทริปวันเดียวที่เหมาะสำหรับครอบครัว เรียนรู้เกี่ยวกับฟาร์ม ให้อาหารสัตว์ และสนุกกับกิจกรรมต่างๆ",
+        "en": "A perfect one-day trip for families. Learn about farming, feed animals, and enjoy various activities suitable for all ages.",
+        "zh": "适合家庭的完美一日游。了解农场知识，喂养动物，享受各种适合所有年龄段的活动。",
+        "es": "Un viaje de un día perfecto para familias. Aprende sobre agricultura, alimenta animales y disfruta de actividades para todas las edades.",
+        "fr": "Une excursion d'une journée parfaite pour les familles. Découvrez l'agriculture, nourrissez les animaux et profitez d'activités pour tous les âges.",
+        "it": "Una gita perfetta di un giorno per le famiglie. Impara sull'agricoltura, dai da mangiare agli animali e goditi attività adatte a tutte le età.",
+        "ru": "Идеальная однодневная поездка для семей. Узнайте о фермерстве, покормите животных и насладитесь развлечениями для всех возрастов."
+      },
+      "difficulty": "easy",
+      "stops": [
+        {
+          "placeId": "farm-chokchai",
+          "day": 1,
+          "order": 1,
+          "timeSlot": "09:00-13:00",
+          "notes": {
+            "th": "เข้าร่วมทัวร์ฟาร์ม รีดนมวัว และชิมไอศกรีมนมสด",
+            "en": "Join the farm tour, try cow milking, and taste fresh milk ice cream."
+          }
+        },
+        {
+          "placeId": "primo-piazza",
+          "day": 1,
+          "order": 2,
+          "timeSlot": "14:00-17:00",
+          "notes": {
+            "th": "ทานอาหารกลางวันและเดินเล่นถ่ายรูป",
+            "en": "Have lunch and enjoy walking around for photos."
+          }
+        },
+        {
+          "placeId": "pak-chong-night-market",
+          "day": 1,
+          "order": 3,
+          "timeSlot": "18:00-20:00",
+          "notes": {
+            "th": "ทานอาหารเย็นและซื้อของฝาก",
+            "en": "Enjoy dinner and buy souvenirs."
+          }
+        }
+      ]
+    },
+    {
+      "id": "food-wine",
+      "slug": "food-and-wine-tour",
+      "title": {
+        "th": "ทริปอาหารและไวน์",
+        "en": "Food & Wine Tour",
+        "zh": "美食与美酒之旅",
+        "es": "Tour de Comida y Vino",
+        "fr": "Circuit Gastronomique et Viticole",
+        "it": "Tour Enogastronomico",
+        "ru": "Гастрономический и винный тур"
+      },
+      "duration": {
+        "th": "1 วัน",
+        "en": "1 day",
+        "zh": "1天",
+        "es": "1 día",
+        "fr": "1 jour",
+        "it": "1 giorno",
+        "ru": "1 день"
+      },
+      "description": {
+        "th": "สำหรับคนรักอาหารและไวน์ ชิมไวน์ไทยคุณภาพดี ทานอาหารอร่อย และสัมผัสวัฒนธรรมอาหารท้องถิ่น",
+        "en": "For food and wine enthusiasts. Taste quality Thai wines, enjoy delicious cuisine, and experience local food culture at the night market.",
+        "zh": "适合美食和葡萄酒爱好者。品尝优质泰国葡萄酒，享用美食，在夜市体验当地美食文化。",
+        "es": "Para los entusiastas de la comida y el vino. Degusta vinos tailandeses de calidad, disfruta de una deliciosa cocina y experimenta la cultura gastronómica local.",
+        "fr": "Pour les amateurs de gastronomie et de vin. Dégustez des vins thaïlandais de qualité, savourez une cuisine délicieuse et découvrez la culture culinaire locale.",
+        "it": "Per gli appassionati di cibo e vino. Assaggia vini tailandesi di qualità, gusta una cucina deliziosa e vivi la cultura gastronomica locale.",
+        "ru": "Для любителей еды и вина. Попробуйте качественные тайские вина, насладитесь вкусной кухней и познакомьтесь с местной кулинарной культурой."
+      },
+      "difficulty": "easy",
+      "stops": [
+        {
+          "placeId": "pb-valley-khao-yai-winery",
+          "day": 1,
+          "order": 1,
+          "timeSlot": "10:00-14:00",
+          "notes": {
+            "th": "ทัวร์ไร่องุ่น ชิมไวน์ และทานอาหารกลางวันที่ร้านอาหารของไร่",
+            "en": "Winery tour, wine tasting, and lunch at the vineyard restaurant."
+          }
+        },
+        {
+          "placeId": "primo-piazza",
+          "day": 1,
+          "order": 2,
+          "timeSlot": "15:00-17:00",
+          "notes": {
+            "th": "ดื่มกาแฟและของหวานที่คาเฟ่",
+            "en": "Coffee and dessert at one of the cafes."
+          }
+        },
+        {
+          "placeId": "pak-chong-night-market",
+          "day": 1,
+          "order": 3,
+          "timeSlot": "18:00-21:00",
+          "notes": {
+            "th": "สำรวจอาหารท้องถิ่นและสตรีทฟู้ด",
+            "en": "Explore local food and street food stalls."
+          }
+        }
+      ]
+    }
+  ]
+}

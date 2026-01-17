@@ -1,0 +1,174 @@
+{
+  "places": [
+    {
+      "id": "khao-yai-national-park",
+      "slug": "khao-yai-national-park",
+      "name": {
+        "th": "อุทยานแห่งชาติเขาใหญ่",
+        "en": "Khao Yai National Park",
+        "zh": "考艾国家公园",
+        "es": "Parque Nacional Khao Yai",
+        "fr": "Parc National de Khao Yai",
+        "it": "Parco Nazionale di Khao Yai",
+        "ru": "Национальный парк Кхао Яй"
+      },
+      "description": {
+        "th": "อุทยานแห่งชาติเขาใหญ่เป็นมรดกโลกทางธรรมชาติของยูเนสโก มีพื้นที่กว่า 2,000 ตารางกิโลเมตร เป็นที่อยู่อาศัยของช้างป่า เสือ นก และสัตว์ป่าอีกมากมาย มีน้ำตกที่สวยงามหลายแห่งและเส้นทางเดินป่าหลากหลาย",
+        "en": "Khao Yai National Park is a UNESCO World Heritage Site covering over 2,000 square kilometers. Home to wild elephants, tigers, gibbons, and diverse wildlife. Features beautiful waterfalls including Haew Narok and Haew Suwat, plus numerous hiking trails.",
+        "zh": "考艾国家公园是联合国教科文组织世界遗产，占地超过2000平方公里。这里栖息着野生大象、老虎、长臂猿和各种野生动物。拥有美丽的瀑布和众多徒步路线。",
+        "es": "El Parque Nacional Khao Yai es Patrimonio de la Humanidad por la UNESCO, con más de 2.000 km². Hogar de elefantes salvajes, tigres y diversa vida silvestre. Cuenta con hermosas cascadas y senderos para excursiones.",
+        "fr": "Le parc national de Khao Yai est un site du patrimoine mondial de l'UNESCO couvrant plus de 2 000 km². Il abrite des éléphants sauvages, des tigres et une faune diversifiée. Il offre de belles cascades et de nombreux sentiers de randonnée.",
+        "it": "Il Parco Nazionale di Khao Yai è Patrimonio dell'Umanità UNESCO, con oltre 2.000 km². Ospita elefanti selvatici, tigri e fauna diversificata. Presenta bellissime cascate e numerosi sentieri escursionistici.",
+        "ru": "Национальный парк Кхао Яй — объект Всемирного наследия ЮНЕСКО площадью более 2000 кв. км. Здесь обитают дикие слоны, тигры и разнообразная фауна. Парк славится красивыми водопадами и многочисленными пешеходными тропами."
+      },
+      "categories": ["nature", "hiking"],
+      "images": ["/images/places/khao-yai-national-park.jpg"],
+      "mapUrl": "https://maps.google.com/?q=14.4378,101.3700",
+      "address": {
+        "th": "อุทยานแห่งชาติเขาใหญ่ ถนนธนะรัชต์ อำเภอปากช่อง นครราชสีมา",
+        "en": "Khao Yai National Park, Thanarat Road, Pak Chong, Nakhon Ratchasima"
+      },
+      "openingHours": "06:00-18:00",
+      "priceRange": "$$",
+      "contactPhone": "+66 86 092 6529",
+      "website": "https://portal.dnp.go.th/",
+      "tags": ["unesco", "family-friendly", "must-visit"]
+    },
+    {
+      "id": "pb-valley-khao-yai-winery",
+      "slug": "pb-valley-khao-yai-winery",
+      "name": {
+        "th": "พีบี วัลเลย์ เขาใหญ่ ไวน์เนอรี่",
+        "en": "PB Valley Khao Yai Winery",
+        "zh": "PB Valley 考艾酒庄",
+        "es": "Bodega PB Valley Khao Yai",
+        "fr": "Domaine PB Valley Khao Yai",
+        "it": "Cantina PB Valley Khao Yai",
+        "ru": "Винодельня PB Valley Khao Yai"
+      },
+      "description": {
+        "th": "ไร่องุ่นที่ใหญ่ที่สุดในเอเชียตะวันออกเฉียงใต้ ตั้งอยู่บนเนินเขาที่สวยงาม มีทัวร์ชมไร่องุ่น ชิมไวน์ และร้านอาหารที่มีวิวทิวทัศน์สวยงาม",
+        "en": "The largest vineyard in Southeast Asia, set on beautiful hillsides. Offers winery tours, wine tasting sessions, and a restaurant with stunning views. Experience Thailand's award-winning wines.",
+        "zh": "东南亚最大的葡萄园，坐落在美丽的山坡上。提供酒庄参观、品酒会和拥有美丽景观的餐厅。体验泰国获奖葡萄酒。",
+        "es": "El viñedo más grande del sudeste asiático, situado en hermosas colinas. Ofrece tours por la bodega, catas de vino y un restaurante con vistas impresionantes.",
+        "fr": "Le plus grand vignoble d'Asie du Sud-Est, niché sur de belles collines. Propose des visites du domaine, des dégustations de vin et un restaurant avec vue panoramique.",
+        "it": "Il più grande vigneto del Sud-Est asiatico, situato su bellissime colline. Offre tour della cantina, degustazioni di vino e un ristorante con vista mozzafiato.",
+        "ru": "Крупнейший виноградник в Юго-Восточной Азии на живописных холмах. Предлагает экскурсии по винодельне, дегустации вин и ресторан с потрясающим видом."
+      },
+      "categories": ["winery", "dining", "attraction"],
+      "images": ["/images/places/pb-valley-winery.jpg"],
+      "mapUrl": "https://maps.google.com/?q=14.5058,101.3556",
+      "address": {
+        "th": "102 หมู่ 5 ถนนธนะรัชต์ กม.31 ตำบลพญาเย็น อำเภอปากช่อง",
+        "en": "102 Moo 5, Thanarat Road Km.31, Phaya Yen, Pak Chong"
+      },
+      "openingHours": "08:30-17:00",
+      "priceRange": "$$$",
+      "contactPhone": "+66 36 226 415",
+      "website": "https://www.pbvalley.com/",
+      "tags": ["romantic", "wine-tasting", "scenic-views"]
+    },
+    {
+      "id": "primo-piazza",
+      "slug": "primo-piazza",
+      "name": {
+        "th": "พรีโม่ เพียซซ่า",
+        "en": "Primo Piazza",
+        "zh": "Primo Piazza 意大利广场",
+        "es": "Primo Piazza",
+        "fr": "Primo Piazza",
+        "it": "Primo Piazza",
+        "ru": "Примо Пьяцца"
+      },
+      "description": {
+        "th": "แหล่งท่องเที่ยวสไตล์อิตาเลียนกลางเขาใหญ่ มีร้านอาหาร คาเฟ่ ร้านค้า และจุดถ่ายรูปสวยๆ มากมาย บรรยากาศเหมือนอยู่ในทัสคานี",
+        "en": "An Italian-themed attraction in Khao Yai with restaurants, cafes, shops, and numerous photo spots. The atmosphere resembles Tuscany with beautiful architecture and landscaping.",
+        "zh": "考艾的意大利风情景点，设有餐厅、咖啡馆、商店和众多拍照点。氛围如同托斯卡纳，拥有美丽的建筑和景观。",
+        "es": "Una atracción de temática italiana en Khao Yai con restaurantes, cafés, tiendas y numerosos puntos fotográficos. El ambiente recuerda a la Toscana.",
+        "fr": "Une attraction à thème italien à Khao Yai avec restaurants, cafés, boutiques et nombreux spots photos. L'atmosphère rappelle la Toscane.",
+        "it": "Un'attrazione a tema italiano a Khao Yai con ristoranti, caffè, negozi e numerosi punti fotografici. L'atmosfera ricorda la Toscana.",
+        "ru": "Итальянская тематическая достопримечательность в Кхао Яй с ресторанами, кафе, магазинами и множеством фотозон. Атмосфера напоминает Тоскану."
+      },
+      "categories": ["attraction", "cafe", "dining"],
+      "images": ["/images/places/primo-piazza.jpg"],
+      "mapUrl": "https://maps.google.com/?q=14.5197,101.3919",
+      "address": {
+        "th": "หมู่ 3 ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
+        "en": "Moo 3, Mu Si, Pak Chong, Nakhon Ratchasima"
+      },
+      "openingHours": "09:00-18:00",
+      "priceRange": "$$",
+      "contactPhone": "+66 44 756 562",
+      "website": "https://www.primopiazzakhaoyai.com/",
+      "tags": ["instagram-worthy", "family-friendly", "photography"]
+    },
+    {
+      "id": "farm-chokchai",
+      "slug": "farm-chokchai",
+      "name": {
+        "th": "ฟาร์มโชคชัย",
+        "en": "Farm Chokchai",
+        "zh": "Chokchai农场",
+        "es": "Granja Chokchai",
+        "fr": "Ferme Chokchai",
+        "it": "Fattoria Chokchai",
+        "ru": "Ферма Чокчай"
+      },
+      "description": {
+        "th": "ฟาร์มโคนมที่ใหญ่ที่สุดในเอเชีย มีกิจกรรมให้เรียนรู้เกี่ยวกับการทำฟาร์ม รีดนมวัว ให้อาหารสัตว์ และชิมนมสดและไอศกรีม",
+        "en": "The largest dairy farm in Asia offering educational tours about farming. Activities include cow milking, animal feeding, and tasting fresh milk and ice cream. Great for families with children.",
+        "zh": "亚洲最大的奶牛场，提供农场教育之旅。活动包括挤奶、喂动物以及品尝新鲜牛奶和冰淇淋。非常适合带孩子的家庭。",
+        "es": "La granja lechera más grande de Asia que ofrece tours educativos. Las actividades incluyen ordeño de vacas, alimentación de animales y degustación de leche fresca y helado.",
+        "fr": "La plus grande ferme laitière d'Asie proposant des visites éducatives. Les activités comprennent la traite des vaches, l'alimentation des animaux et la dégustation de lait frais et de glaces.",
+        "it": "La più grande fattoria lattiera dell'Asia che offre tour educativi. Le attività includono mungitura, alimentazione degli animali e degustazione di latte fresco e gelato.",
+        "ru": "Крупнейшая молочная ферма в Азии с образовательными турами. Мероприятия включают дойку коров, кормление животных и дегустацию свежего молока и мороженого."
+      },
+      "categories": ["farm", "attraction"],
+      "images": ["/images/places/farm-chokchai.jpg"],
+      "mapUrl": "https://maps.google.com/?q=14.6372,101.4031",
+      "address": {
+        "th": "169 หมู่ 2 ถนนมิตรภาพ ตำบลหนองน้ำแดง อำเภอปากช่อง",
+        "en": "169 Moo 2, Mittraphap Road, Nong Nam Daeng, Pak Chong"
+      },
+      "openingHours": "09:00-16:00",
+      "priceRange": "$$",
+      "contactPhone": "+66 44 328 485",
+      "website": "https://www.farmchokchai.com/",
+      "tags": ["family-friendly", "educational", "kids-activities"]
+    },
+    {
+      "id": "pak-chong-night-market",
+      "slug": "pak-chong-night-market",
+      "name": {
+        "th": "ตลาดกลางคืนปากช่อง",
+        "en": "Pak Chong Night Market",
+        "zh": "巴冲夜市",
+        "es": "Mercado Nocturno de Pak Chong",
+        "fr": "Marché de Nuit de Pak Chong",
+        "it": "Mercato Notturno di Pak Chong",
+        "ru": "Ночной рынок Пакчонг"
+      },
+      "description": {
+        "th": "ตลาดกลางคืนที่มีอาหารท้องถิ่นหลากหลาย ของฝาก ผลไม้สด และสินค้าพื้นเมือง เป็นที่นิยมของทั้งคนท้องถิ่นและนักท่องเที่ยว",
+        "en": "A vibrant night market featuring local street food, souvenirs, fresh fruits, and local products. Popular among both locals and tourists. Great place to experience authentic Thai market culture.",
+        "zh": "热闹的夜市，供应当地街头美食、纪念品、新鲜水果和当地产品。深受当地人和游客欢迎。体验正宗泰国市场文化的好地方。",
+        "es": "Un vibrante mercado nocturno con comida callejera local, souvenirs, frutas frescas y productos locales. Popular entre locales y turistas.",
+        "fr": "Un marché de nuit animé proposant de la street food locale, des souvenirs, des fruits frais et des produits locaux. Populaire auprès des locaux et des touristes.",
+        "it": "Un vivace mercato notturno con street food locale, souvenir, frutta fresca e prodotti locali. Popolare tra locali e turisti.",
+        "ru": "Оживленный ночной рынок с местной уличной едой, сувенирами, свежими фруктами и местными продуктами. Популярен как среди местных жителей, так и среди туристов."
+      },
+      "categories": ["market", "dining"],
+      "images": ["/images/places/pak-chong-night-market.jpg"],
+      "mapUrl": "https://maps.google.com/?q=14.7108,101.4153",
+      "address": {
+        "th": "ถนนเทศบาล 17 ตำบลปากช่อง อำเภอปากช่อง นครราชสีมา",
+        "en": "Thetsaban 17 Road, Pak Chong, Nakhon Ratchasima"
+      },
+      "openingHours": "17:00-22:00",
+      "priceRange": "$",
+      "contactPhone": null,
+      "website": null,
+      "tags": ["budget-friendly", "local-experience", "street-food"]
+    }
+  ]
+}

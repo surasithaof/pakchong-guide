@@ -1,0 +1,420 @@
+{
+  "site": {
+    "title": {
+      "th": "Pakchong Guide - คู่มือท่องเที่ยวปากช่อง",
+      "en": "Pakchong Guide - Travel Guide",
+      "zh": "巴冲生活 - 旅游指南",
+      "es": "Pakchong Guide - Guía de Viaje",
+      "fr": "Pakchong Guide - Guide de Voyage",
+      "it": "Pakchong Guide - Guida Turistica",
+      "ru": "Pakchong Guide - Путеводитель"
+    },
+    "description": {
+      "th": "คู่มือท่องเที่ยวปากช่องและเขาใหญ่แบบครบวงจร สถานที่ท่องเที่ยว ร้านอาหาร การเดินทาง",
+      "en": "Complete travel guide to Pakchong and Khao Yai - attractions, restaurants, transport",
+      "zh": "巴冲和考艾完整旅游指南 - 景点、餐厅、交通",
+      "es": "Guía completa de viaje a Pakchong y Khao Yai - atracciones, restaurantes, transporte",
+      "fr": "Guide de voyage complet de Pakchong et Khao Yai - attractions, restaurants, transport",
+      "it": "Guida turistica completa di Pakchong e Khao Yai - attrazioni, ristoranti, trasporti",
+      "ru": "Полный путеводитель по Пакчонгу и Кхао Яй - достопримечательности, рестораны, транспорт"
+    }
+  },
+  "nav": {
+    "home": {
+      "th": "หน้าแรก",
+      "en": "Home",
+      "zh": "首页",
+      "es": "Inicio",
+      "fr": "Accueil",
+      "it": "Home",
+      "ru": "Главная"
+    },
+    "places": {
+      "th": "สถานที่",
+      "en": "Places",
+      "zh": "景点",
+      "es": "Lugares",
+      "fr": "Lieux",
+      "it": "Luoghi",
+      "ru": "Места"
+    },
+    "itineraries": {
+      "th": "แผนการเดินทาง",
+      "en": "Itineraries",
+      "zh": "行程",
+      "es": "Itinerarios",
+      "fr": "Itinéraires",
+      "it": "Itinerari",
+      "ru": "Маршруты"
+    },
+    "transport": {
+      "th": "การเดินทาง",
+      "en": "Transport",
+      "zh": "交通",
+      "es": "Transporte",
+      "fr": "Transport",
+      "it": "Trasporti",
+      "ru": "Транспорт"
+    },
+    "about": {
+      "th": "เกี่ยวกับ",
+      "en": "About",
+      "zh": "关于",
+      "es": "Acerca de",
+      "fr": "À propos",
+      "it": "Chi siamo",
+      "ru": "О нас"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": {
+        "th": "ค้นพบปากช่องและเขาใหญ่",
+        "en": "Discover Pakchong & Khao Yai",
+        "zh": "探索巴冲和考艾",
+        "es": "Descubre Pakchong y Khao Yai",
+        "fr": "Découvrez Pakchong et Khao Yai",
+        "it": "Scopri Pakchong e Khao Yai",
+        "ru": "Откройте Пакчонг и Кхао Яй"
+      },
+      "subtitle": {
+        "th": "คู่มือท่องเที่ยวฟรี ไม่มีโฆษณา ไม่มีการจัดอันดับแบบเสียเงิน",
+        "en": "Free travel guide. No ads. No paid rankings.",
+        "zh": "免费旅游指南。无广告。无付费排名。",
+        "es": "Guía de viaje gratuita. Sin anuncios. Sin rankings pagados.",
+        "fr": "Guide de voyage gratuit. Sans publicité. Sans classement payant.",
+        "it": "Guida turistica gratuita. Nessuna pubblicità. Nessuna classifica a pagamento.",
+        "ru": "Бесплатный путеводитель. Без рекламы. Без платных рейтингов."
+      }
+    },
+    "featuredPlaces": {
+      "th": "สถานที่แนะนำ",
+      "en": "Featured Places",
+      "zh": "精选景点",
+      "es": "Lugares Destacados",
+      "fr": "Lieux en vedette",
+      "it": "Luoghi in evidenza",
+      "ru": "Избранные места"
+    },
+    "viewAll": {
+      "th": "ดูทั้งหมด",
+      "en": "View All",
+      "zh": "查看全部",
+      "es": "Ver todo",
+      "fr": "Voir tout",
+      "it": "Vedi tutti",
+      "ru": "Смотреть все"
+    }
+  },
+  "places": {
+    "title": {
+      "th": "สถานที่ท่องเที่ยว",
+      "en": "Places to Visit",
+      "zh": "旅游景点",
+      "es": "Lugares para Visitar",
+      "fr": "Lieux à Visiter",
+      "it": "Luoghi da Visitare",
+      "ru": "Места для посещения"
+    },
+    "search": {
+      "th": "ค้นหาสถานที่...",
+      "en": "Search places...",
+      "zh": "搜索景点...",
+      "es": "Buscar lugares...",
+      "fr": "Rechercher des lieux...",
+      "it": "Cerca luoghi...",
+      "ru": "Поиск мест..."
+    },
+    "allCategories": {
+      "th": "ทุกหมวดหมู่",
+      "en": "All Categories",
+      "zh": "所有类别",
+      "es": "Todas las Categorías",
+      "fr": "Toutes les catégories",
+      "it": "Tutte le categorie",
+      "ru": "Все категории"
+    },
+    "noResults": {
+      "th": "ไม่พบสถานที่",
+      "en": "No places found",
+      "zh": "未找到景点",
+      "es": "No se encontraron lugares",
+      "fr": "Aucun lieu trouvé",
+      "it": "Nessun luogo trovato",
+      "ru": "Места не найдены"
+    },
+    "openingHours": {
+      "th": "เวลาเปิด-ปิด",
+      "en": "Opening Hours",
+      "zh": "营业时间",
+      "es": "Horario",
+      "fr": "Heures d'ouverture",
+      "it": "Orari di apertura",
+      "ru": "Часы работы"
+    },
+    "address": {
+      "th": "ที่อยู่",
+      "en": "Address",
+      "zh": "地址",
+      "es": "Dirección",
+      "fr": "Adresse",
+      "it": "Indirizzo",
+      "ru": "Адрес"
+    },
+    "phone": {
+      "th": "โทรศัพท์",
+      "en": "Phone",
+      "zh": "电话",
+      "es": "Teléfono",
+      "fr": "Téléphone",
+      "it": "Telefono",
+      "ru": "Телефон"
+    },
+    "website": {
+      "th": "เว็บไซต์",
+      "en": "Website",
+      "zh": "网站",
+      "es": "Sitio web",
+      "fr": "Site web",
+      "it": "Sito web",
+      "ru": "Веб-сайт"
+    },
+    "viewOnMap": {
+      "th": "ดูบนแผนที่",
+      "en": "View on Map",
+      "zh": "在地图上查看",
+      "es": "Ver en el mapa",
+      "fr": "Voir sur la carte",
+      "it": "Vedi sulla mappa",
+      "ru": "Посмотреть на карте"
+    }
+  },
+  "itineraries": {
+    "title": {
+      "th": "แผนการเดินทาง",
+      "en": "Trip Itineraries",
+      "zh": "行程安排",
+      "es": "Itinerarios de Viaje",
+      "fr": "Itinéraires de voyage",
+      "it": "Itinerari di Viaggio",
+      "ru": "Маршруты путешествий"
+    },
+    "duration": {
+      "th": "ระยะเวลา",
+      "en": "Duration",
+      "zh": "时长",
+      "es": "Duración",
+      "fr": "Durée",
+      "it": "Durata",
+      "ru": "Продолжительность"
+    },
+    "difficulty": {
+      "th": "ความยาก",
+      "en": "Difficulty",
+      "zh": "难度",
+      "es": "Dificultad",
+      "fr": "Difficulté",
+      "it": "Difficoltà",
+      "ru": "Сложность"
+    },
+    "day": {
+      "th": "วันที่",
+      "en": "Day",
+      "zh": "第",
+      "es": "Día",
+      "fr": "Jour",
+      "it": "Giorno",
+      "ru": "День"
+    },
+    "stops": {
+      "th": "จุดแวะ",
+      "en": "Stops",
+      "zh": "站点",
+      "es": "Paradas",
+      "fr": "Arrêts",
+      "it": "Tappe",
+      "ru": "Остановки"
+    },
+    "difficultyLevels": {
+      "easy": {
+        "th": "ง่าย",
+        "en": "Easy",
+        "zh": "简单",
+        "es": "Fácil",
+        "fr": "Facile",
+        "it": "Facile",
+        "ru": "Легко"
+      },
+      "moderate": {
+        "th": "ปานกลาง",
+        "en": "Moderate",
+        "zh": "中等",
+        "es": "Moderado",
+        "fr": "Modéré",
+        "it": "Moderato",
+        "ru": "Умеренно"
+      },
+      "challenging": {
+        "th": "ท้าทาย",
+        "en": "Challenging",
+        "zh": "挑战性",
+        "es": "Desafiante",
+        "fr": "Difficile",
+        "it": "Impegnativo",
+        "ru": "Сложно"
+      }
+    }
+  },
+  "transport": {
+    "title": {
+      "th": "การเดินทาง",
+      "en": "Getting Around",
+      "zh": "交通出行",
+      "es": "Cómo Llegar",
+      "fr": "Se Déplacer",
+      "it": "Come Arrivare",
+      "ru": "Как добраться"
+    },
+    "taxis": {
+      "th": "แท็กซี่และรถตู้",
+      "en": "Taxis & Vans",
+      "zh": "出租车和面包车",
+      "es": "Taxis y Furgonetas",
+      "fr": "Taxis et Fourgonnettes",
+      "it": "Taxi e Furgoni",
+      "ru": "Такси и микроавтобусы"
+    },
+    "publicTransport": {
+      "th": "ขนส่งสาธารณะ",
+      "en": "Public Transport",
+      "zh": "公共交通",
+      "es": "Transporte Público",
+      "fr": "Transports Publics",
+      "it": "Trasporto Pubblico",
+      "ru": "Общественный транспорт"
+    },
+    "carRental": {
+      "th": "รถเช่า",
+      "en": "Car Rental",
+      "zh": "租车",
+      "es": "Alquiler de Coches",
+      "fr": "Location de Voiture",
+      "it": "Noleggio Auto",
+      "ru": "Аренда авто"
+    },
+    "tips": {
+      "th": "เคล็ดลับการเดินทาง",
+      "en": "Travel Tips",
+      "zh": "旅行贴士",
+      "es": "Consejos de Viaje",
+      "fr": "Conseils de voyage",
+      "it": "Consigli di Viaggio",
+      "ru": "Советы путешественникам"
+    },
+    "languages": {
+      "th": "ภาษา",
+      "en": "Languages",
+      "zh": "语言",
+      "es": "Idiomas",
+      "fr": "Langues",
+      "it": "Lingue",
+      "ru": "Языки"
+    },
+    "price": {
+      "th": "ราคา",
+      "en": "Price",
+      "zh": "价格",
+      "es": "Precio",
+      "fr": "Prix",
+      "it": "Prezzo",
+      "ru": "Цена"
+    },
+    "frequency": {
+      "th": "ความถี่",
+      "en": "Frequency",
+      "zh": "频率",
+      "es": "Frecuencia",
+      "fr": "Fréquence",
+      "it": "Frequenza",
+      "ru": "Частота"
+    }
+  },
+  "about": {
+    "title": {
+      "th": "เกี่ยวกับเรา",
+      "en": "About Us",
+      "zh": "关于我们",
+      "es": "Sobre Nosotros",
+      "fr": "À propos de nous",
+      "it": "Chi Siamo",
+      "ru": "О нас"
+    },
+    "description": {
+      "th": "Pakchong Guide เป็นคู่มือท่องเที่ยวโอเพนซอร์สสำหรับปากช่องและเขาใหญ่ สร้างขึ้นด้วยความรักต่อภูมิภาคนี้ ไม่มีโฆษณา ไม่มีการจัดอันดับแบบเสียเงิน ทุกคนสามารถมีส่วนร่วมได้",
+      "en": "Pakchong Guide is an open-source travel guide for Pakchong and Khao Yai, built with love for this region. No ads, no paid rankings, anyone can contribute.",
+      "zh": "Pakchong Guide是一个开源的巴冲和考艾旅游指南，以对这个地区的热爱而建。没有广告，没有付费排名，任何人都可以贡献。",
+      "es": "Pakchong Guide es una guía de viaje de código abierto para Pakchong y Khao Yai, creada con amor por esta región. Sin anuncios, sin rankings pagados, cualquiera puede contribuir.",
+      "fr": "Pakchong Guide est un guide de voyage open source pour Pakchong et Khao Yai, créé avec amour pour cette région. Sans publicité, sans classement payant, tout le monde peut contribuer.",
+      "it": "Pakchong Guide è una guida turistica open source per Pakchong e Khao Yai, creata con amore per questa regione. Nessuna pubblicità, nessuna classifica a pagamento, chiunque può contribuire.",
+      "ru": "Pakchong Guide - это путеводитель с открытым исходным кодом для Пакчонга и Кхао Яй, созданный с любовью к этому региону. Без рекламы, без платных рейтингов, каждый может внести вклад."
+    },
+    "contribute": {
+      "th": "มีส่วนร่วม",
+      "en": "Contribute",
+      "zh": "贡献",
+      "es": "Contribuir",
+      "fr": "Contribuer",
+      "it": "Contribuisci",
+      "ru": "Участвовать"
+    }
+  },
+  "footer": {
+    "madeWith": {
+      "th": "สร้างด้วยความรักเพื่อนักเดินทาง",
+      "en": "Made with love for travelers",
+      "zh": "为旅行者用爱制作",
+      "es": "Hecho con amor para viajeros",
+      "fr": "Fait avec amour pour les voyageurs",
+      "it": "Fatto con amore per i viaggiatori",
+      "ru": "Сделано с любовью для путешественников"
+    },
+    "openSource": {
+      "th": "โอเพนซอร์ส",
+      "en": "Open Source",
+      "zh": "开源",
+      "es": "Código Abierto",
+      "fr": "Open Source",
+      "it": "Open Source",
+      "ru": "Открытый исходный код"
+    }
+  },
+  "common": {
+    "loading": {
+      "th": "กำลังโหลด...",
+      "en": "Loading...",
+      "zh": "加载中...",
+      "es": "Cargando...",
+      "fr": "Chargement...",
+      "it": "Caricamento...",
+      "ru": "Загрузка..."
+    },
+    "error": {
+      "th": "เกิดข้อผิดพลาด",
+      "en": "An error occurred",
+      "zh": "发生错误",
+      "es": "Ocurrió un error",
+      "fr": "Une erreur s'est produite",
+      "it": "Si è verificato un errore",
+      "ru": "Произошла ошибка"
+    },
+    "back": {
+      "th": "กลับ",
+      "en": "Back",
+      "zh": "返回",
+      "es": "Volver",
+      "fr": "Retour",
+      "it": "Indietro",
+      "ru": "Назад"
+    }
+  }
+}

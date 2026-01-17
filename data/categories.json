@@ -1,0 +1,108 @@
+{
+  "categories": [
+    {
+      "id": "nature",
+      "icon": "mountain",
+      "name": {
+        "th": "ธรรมชาติ",
+        "en": "Nature",
+        "zh": "自然",
+        "es": "Naturaleza",
+        "fr": "Nature",
+        "it": "Natura",
+        "ru": "Природа"
+      }
+    },
+    {
+      "id": "dining",
+      "icon": "utensils",
+      "name": {
+        "th": "ร้านอาหาร",
+        "en": "Dining",
+        "zh": "餐饮",
+        "es": "Restaurantes",
+        "fr": "Restaurants",
+        "it": "Ristoranti",
+        "ru": "Рестораны"
+      }
+    },
+    {
+      "id": "cafe",
+      "icon": "coffee",
+      "name": {
+        "th": "คาเฟ่",
+        "en": "Cafes",
+        "zh": "咖啡馆",
+        "es": "Cafeterías",
+        "fr": "Cafés",
+        "it": "Caffè",
+        "ru": "Кафе"
+      }
+    },
+    {
+      "id": "attraction",
+      "icon": "camera",
+      "name": {
+        "th": "สถานที่ท่องเที่ยว",
+        "en": "Attractions",
+        "zh": "景点",
+        "es": "Atracciones",
+        "fr": "Attractions",
+        "it": "Attrazioni",
+        "ru": "Достопримечательности"
+      }
+    },
+    {
+      "id": "market",
+      "icon": "shopping-bag",
+      "name": {
+        "th": "ตลาด",
+        "en": "Markets",
+        "zh": "市场",
+        "es": "Mercados",
+        "fr": "Marchés",
+        "it": "Mercati",
+        "ru": "Рынки"
+      }
+    },
+    {
+      "id": "winery",
+      "icon": "wine",
+      "name": {
+        "th": "ไร่องุ่น",
+        "en": "Wineries",
+        "zh": "酒庄",
+        "es": "Bodegas",
+        "fr": "Vignobles",
+        "it": "Cantine",
+        "ru": "Винодельни"
+      }
+    },
+    {
+      "id": "farm",
+      "icon": "tractor",
+      "name": {
+        "th": "ฟาร์ม",
+        "en": "Farms",
+        "zh": "农场",
+        "es": "Granjas",
+        "fr": "Fermes",
+        "it": "Fattorie",
+        "ru": "Фермы"
+      }
+    },
+    {
+      "id": "hiking",
+      "icon": "footprints",
+      "name": {
+        "th": "เดินป่า",
+        "en": "Hiking",
+        "zh": "徒步旅行",
+        "es": "Senderismo",
+        "fr": "Randonnée",
+        "it": "Escursionismo",
+        "ru": "Пешие прогулки"
+      }
+    }
+  ]
+}

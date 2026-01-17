@@ -1,0 +1,89 @@
+---
+import { Search, X } from 'lucide-astro';
+import { useTranslations } from '../i18n/utils';
+import type { Language } from '../types';
+
+interface Props {
+  lang: Language;
+  placeholder?: string;
+}
+
+const { lang, placeholder } = Astro.props;
+const t = useTranslations(lang);
+const searchPlaceholder = placeholder || t('places', 'search');
+---
+
+<div class="relative">
+  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+    <Search class="w-5 h-5 text-gray-400" />
+  </div>
+
+  <input
+    type="text"
+    id="search-input"
+    class="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-gray-900 placeholder-gray-500"
+    placeholder={searchPlaceholder}
+  />
+
+  <button
+    type="button"
+    id="search-clear"
+    class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 hidden"
+  >
+    <X class="w-5 h-5" />
+  </button>
+</div>
+
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const searchClear = document.getElementById('search-clear');
+  const placeCards = document.querySelectorAll('[data-search-name]');
+  const noResultsEl = document.getElementById('no-results');
+
+  function filterPlaces(query: string) {
+    const normalizedQuery = query.toLowerCase().trim();
+    let visibleCount = 0;
+
+    placeCards.forEach((card) => {
+      const name = card.getAttribute('data-search-name')?.toLowerCase() || '';
+      const description = card.getAttribute('data-search-description')?.toLowerCase() || '';
+
+      const matches = !normalizedQuery || name.includes(normalizedQuery) || description.includes(normalizedQuery);
+
+      // Check if card is also filtered by category
+      const displayStyle = (card as HTMLElement).style.display;
+      const categoryFiltered = displayStyle === 'none';
+
+      if (matches && !categoryFiltered) {
+        (card as HTMLElement).style.display = '';
+        visibleCount++;
+      } else if (!matches) {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+
+    // Show/hide no results message
+    if (noResultsEl) {
+      noResultsEl.style.display = visibleCount === 0 && normalizedQuery ? 'block' : 'none';
+    }
+  }
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value;
+    filterPlaces(query);
+
+    // Toggle clear button
+    if (searchClear) {
+      searchClear.classList.toggle('hidden', !query);
+    }
+  });
+
+  searchClear?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      filterPlaces('');
+      searchClear.classList.add('hidden');
+      searchInput.focus();
+    }
+  });
+</script>
