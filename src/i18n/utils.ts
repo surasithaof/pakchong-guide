@@ -14,8 +14,13 @@ export const languages: { code: Language; name: string; nativeName: string }[] =
 
 export const defaultLang: Language = "th";
 
+// Get base path from Astro config (removes trailing slash if present)
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 export function getLangFromUrl(url: URL): Language {
-  const pathParts = url.pathname.split("/").filter(Boolean);
+  // Remove base path from pathname before parsing
+  const pathname = url.pathname.replace(basePath, "");
+  const pathParts = pathname.split("/").filter(Boolean);
   const firstPart = pathParts[0];
 
   if (firstPart && isValidLanguage(firstPart)) {
@@ -71,23 +76,28 @@ export function getLocalizedPath(path: string, lang: Language): string {
 
   // Default language doesn't need prefix
   if (lang === defaultLang) {
-    return "/" + cleanPath || "/";
+    const result = cleanPath ? `${basePath}/${cleanPath}` : `${basePath}/`;
+    return result || "/";
   }
 
   // Add language prefix
-  return `/${lang}/${cleanPath}`.replace(/\/$/, "") || `/${lang}`;
+  const result = cleanPath
+    ? `${basePath}/${lang}/${cleanPath}`
+    : `${basePath}/${lang}`;
+  return result;
 }
 
 export function buildLocalizedUrl(currentUrl: URL, newLang: Language): string {
-  // Get path without language prefix
-  const pathParts = currentUrl.pathname.split("/").filter(Boolean);
+  // Remove base path from pathname before parsing
+  const pathname = currentUrl.pathname.replace(basePath, "");
+  const pathParts = pathname.split("/").filter(Boolean);
   const firstPart = pathParts[0];
 
   let pathWithoutLang: string;
   if (firstPart && isValidLanguage(firstPart)) {
     pathWithoutLang = "/" + pathParts.slice(1).join("/");
   } else {
-    pathWithoutLang = currentUrl.pathname;
+    pathWithoutLang = pathname;
   }
 
   return getLocalizedPath(pathWithoutLang, newLang);
