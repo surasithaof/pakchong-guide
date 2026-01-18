@@ -1,0 +1,17 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#87ceeb"/>
+  <rect y="400" width="100%" height="200" fill="#d4a574"/>
+  <rect x="150" y="200" width="200" height="200" fill="#e8d4b8"/>
+  <rect x="170" y="220" width="60" height="80" fill="#4a3728"/>
+  <rect x="270" y="220" width="60" height="80" fill="#4a3728"/>
+  <rect x="220" y="320" width="60" height="80" fill="#6b4423"/>
+  <polygon points="150,200 250,120 350,200" fill="#b35c3a"/>
+  <rect x="450" y="180" width="200" height="220" fill="#e8d4b8"/>
+  <rect x="470" y="200" width="50" height="70" fill="#4a3728"/>
+  <rect x="580" y="200" width="50" height="70" fill="#4a3728"/>
+  <rect x="520" y="300" width="60" height="100" fill="#6b4423"/>
+  <polygon points="450,180 550,100 650,180" fill="#b35c3a"/>
+  <rect x="540" y="80" width="20" height="40" fill="#8b7355"/>
+  <text x="400" y="500" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">Primo Piazza</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="18" fill="#666" text-anchor="middle">Placeholder Image</text>
+</svg>

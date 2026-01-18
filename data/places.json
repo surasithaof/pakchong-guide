@@ -22,7 +22,7 @@
         "ru": "Национальный парк Кхао Яй — объект Всемирного наследия ЮНЕСКО площадью более 2000 кв. км. Здесь обитают дикие слоны, тигры и разнообразная фауна. Парк славится красивыми водопадами и многочисленными пешеходными тропами."
       },
       "categories": ["nature", "hiking"],
-      "images": ["/images/places/khao-yai-national-park.jpg"],
+      "images": ["/pakchong-guide/images/places/khao-yai-national-park.svg"],
       "mapUrl": "https://maps.google.com/?q=14.4378,101.3700",
       "address": {
         "th": "อุทยานแห่งชาติเขาใหญ่ ถนนธนะรัชต์ อำเภอปากช่อง นครราชสีมา",
@@ -56,7 +56,7 @@
         "ru": "Крупнейший виноградник в Юго-Восточной Азии на живописных холмах. Предлагает экскурсии по винодельне, дегустации вин и ресторан с потрясающим видом."
       },
       "categories": ["winery", "dining", "attraction"],
-      "images": ["/images/places/pb-valley-winery.jpg"],
+      "images": ["/pakchong-guide/images/places/pb-valley-winery.svg"],
       "mapUrl": "https://maps.google.com/?q=14.5058,101.3556",
       "address": {
         "th": "102 หมู่ 5 ถนนธนะรัชต์ กม.31 ตำบลพญาเย็น อำเภอปากช่อง",
@@ -90,7 +90,7 @@
         "ru": "Итальянская тематическая достопримечательность в Кхао Яй с ресторанами, кафе, магазинами и множеством фотозон. Атмосфера напоминает Тоскану."
       },
       "categories": ["attraction", "cafe", "dining"],
-      "images": ["/images/places/primo-piazza.jpg"],
+      "images": ["/pakchong-guide/images/places/primo-piazza.svg"],
       "mapUrl": "https://maps.google.com/?q=14.5197,101.3919",
       "address": {
         "th": "หมู่ 3 ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
@@ -124,7 +124,7 @@
         "ru": "Крупнейшая молочная ферма в Азии с образовательными турами. Мероприятия включают дойку коров, кормление животных и дегустацию свежего молока и мороженого."
       },
       "categories": ["farm", "attraction"],
-      "images": ["/images/places/farm-chokchai.jpg"],
+      "images": ["/pakchong-guide/images/places/farm-chokchai.svg"],
       "mapUrl": "https://maps.google.com/?q=14.6372,101.4031",
       "address": {
         "th": "169 หมู่ 2 ถนนมิตรภาพ ตำบลหนองน้ำแดง อำเภอปากช่อง",
@@ -158,7 +158,7 @@
         "ru": "Оживленный ночной рынок с местной уличной едой, сувенирами, свежими фруктами и местными продуктами. Популярен как среди местных жителей, так и среди туристов."
       },
       "categories": ["market", "dining"],
-      "images": ["/images/places/pak-chong-night-market.jpg"],
+      "images": ["/pakchong-guide/images/places/pak-chong-night-market.svg"],
       "mapUrl": "https://maps.google.com/?q=14.7108,101.4153",
       "address": {
         "th": "ถนนเทศบาล 17 ตำบลปากช่อง อำเภอปากช่อง นครราชสีมา",
