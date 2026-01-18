@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ItineraryCard from '../../components/ItineraryCard.astro';
-import { defaultLang, useTranslations } from '../../i18n/utils';
-import type { PlacesData, ItinerariesData } from '../../types';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ItineraryCard from "../../components/ItineraryCard.astro";
+import { defaultLang, useTranslations } from "../../i18n/utils";
+import type { PlacesData, ItinerariesData } from "../../types";
 
-import placesData from '../../../data/places.json';
-import itinerariesData from '../../../data/itineraries.json';
+import placesData from "../../../data/places.json";
+import itinerariesData from "../../../data/itineraries.json";
 
 const lang = defaultLang;
 const t = useTranslations(lang);
@@ -14,27 +14,31 @@ const { places } = placesData as PlacesData;
 const { itineraries } = itinerariesData as ItinerariesData;
 ---
 
-<BaseLayout title={t('itineraries', 'title')}>
-  <div class="bg-gray-50 min-h-screen">
-    <div class="bg-white border-b">
-      <div class="container py-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">
-          {t('itineraries', 'title')}
-        </h1>
-        <p class="text-gray-600">
-          {itineraries.length} curated trips for every type of traveler
-        </p>
-      </div>
-    </div>
+<BaseLayout title={t("itineraries", "title")}>
+    <div class="bg-gray-50 min-h-screen">
+        <div class="bg-white border-b">
+            <div class="container py-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                    {t("itineraries", "title")}
+                </h1>
+                <p class="text-gray-600">
+                    {itineraries.length} curated trips for every type of traveler
+                </p>
+            </div>
+        </div>
 
-    <div class="container py-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {
-          itineraries.map((itinerary) => (
-            <ItineraryCard itinerary={itinerary} places={places} lang={lang} />
-          ))
-        }
-      </div>
+        <div class="container py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {
+                    itineraries.map((itinerary) => (
+                        <ItineraryCard
+                            itinerary={itinerary}
+                            places={places}
+                            lang={lang}
+                        />
+                    ))
+                }
+            </div>
+        </div>
     </div>
-  </div>
 </BaseLayout>

@@ -1,11 +1,11 @@
 ---
-import { getLocalizedText, useTranslations } from '../i18n/utils';
-import type { Category, Language } from '../types';
+import { getLocalizedText, useTranslations } from "../i18n/utils";
+import type { Category, Language } from "../types";
 
 interface Props {
-  categories: Category[];
-  lang: Language;
-  selectedCategory?: string;
+    categories: Category[];
+    lang: Language;
+    selectedCategory?: string;
 }
 
 const { categories, lang, selectedCategory } = Astro.props;
@@ -13,73 +13,74 @@ const t = useTranslations(lang);
 ---
 
 <div class="category-filter">
-  <div class="flex flex-wrap gap-2">
-    <button
-      type="button"
-      class:list={[
-        'filter-btn',
-        !selectedCategory && 'filter-btn-active'
-      ]}
-      data-category=""
-    >
-      {t('places', 'allCategories')}
-    </button>
-
-    {
-      categories.map((category) => (
+    <div class="flex flex-wrap gap-2">
         <button
-          type="button"
-          class:list={[
-            'filter-btn',
-            selectedCategory === category.id && 'filter-btn-active'
-          ]}
-          data-category={category.id}
+            type="button"
+            class:list={[
+                "filter-btn",
+                !selectedCategory && "filter-btn-active",
+            ]}
+            data-category=""
         >
-          {getLocalizedText(category.name, lang)}
+            {t("places", "allCategories")}
         </button>
-      ))
-    }
-  </div>
+
+        {
+            categories.map((category) => (
+                <button
+                    type="button"
+                    class:list={[
+                        "filter-btn",
+                        selectedCategory === category.id && "filter-btn-active",
+                    ]}
+                    data-category={category.id}
+                >
+                    {getLocalizedText(category.name, lang)}
+                </button>
+            ))
+        }
+    </div>
 </div>
 
 <style>
-  .filter-btn {
-    @apply px-4 py-2 text-sm font-medium rounded-full transition-colors;
-    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
-  }
+    .filter-btn {
+        @apply px-4 py-2 text-sm font-medium rounded-full transition-colors;
+        @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+    }
 
-  .filter-btn-active {
-    @apply bg-primary-600 text-white hover:bg-primary-700;
-  }
+    .filter-btn-active {
+        @apply bg-primary-600 text-white hover:bg-primary-700;
+    }
 </style>
 
 <script>
-  const filterButtons = document.querySelectorAll('[data-category]');
-  const placeCards = document.querySelectorAll('[data-categories]');
+    const filterButtons = document.querySelectorAll("[data-category]");
+    const placeCards = document.querySelectorAll("[data-categories]");
 
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const category = button.getAttribute('data-category');
+    filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const category = button.getAttribute("data-category");
 
-      // Update active state
-      filterButtons.forEach((btn) => {
-        btn.classList.remove('filter-btn-active');
-        btn.classList.add('bg-gray-100', 'text-gray-700');
-        btn.classList.remove('bg-primary-600', 'text-white');
-      });
-      button.classList.add('filter-btn-active');
-      button.classList.remove('bg-gray-100', 'text-gray-700');
-      button.classList.add('bg-primary-600', 'text-white');
+            // Update active state
+            filterButtons.forEach((btn) => {
+                btn.classList.remove("filter-btn-active");
+                btn.classList.add("bg-gray-100", "text-gray-700");
+                btn.classList.remove("bg-primary-600", "text-white");
+            });
+            button.classList.add("filter-btn-active");
+            button.classList.remove("bg-gray-100", "text-gray-700");
+            button.classList.add("bg-primary-600", "text-white");
 
-      // Filter places
-      placeCards.forEach((card) => {
-        const cardCategories = card.getAttribute('data-categories')?.split(',') || [];
-        if (!category || cardCategories.includes(category)) {
-          (card as HTMLElement).style.display = '';
-        } else {
-          (card as HTMLElement).style.display = 'none';
-        }
-      });
+            // Filter places
+            placeCards.forEach((card) => {
+                const cardCategories =
+                    card.getAttribute("data-categories")?.split(",") || [];
+                if (!category || cardCategories.includes(category)) {
+                    (card as HTMLElement).style.display = "";
+                } else {
+                    (card as HTMLElement).style.display = "none";
+                }
+            });
+        });
     });
-  });
 </script>

@@ -1,13 +1,17 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PlaceCard from '../../components/PlaceCard.astro';
-import CategoryFilter from '../../components/CategoryFilter.astro';
-import SearchBar from '../../components/SearchBar.astro';
-import { defaultLang, useTranslations, getLocalizedText } from '../../i18n/utils';
-import type { PlacesData, CategoriesData } from '../../types';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PlaceCard from "../../components/PlaceCard.astro";
+import CategoryFilter from "../../components/CategoryFilter.astro";
+import SearchBar from "../../components/SearchBar.astro";
+import {
+    defaultLang,
+    useTranslations,
+    getLocalizedText,
+} from "../../i18n/utils";
+import type { PlacesData, CategoriesData } from "../../types";
 
-import placesData from '../../../data/places.json';
-import categoriesData from '../../../data/categories.json';
+import placesData from "../../../data/places.json";
+import categoriesData from "../../../data/categories.json";
 
 const lang = defaultLang;
 const t = useTranslations(lang);
@@ -16,58 +20,71 @@ const { places } = placesData as PlacesData;
 const { categories } = categoriesData as CategoriesData;
 
 const sortedPlaces = [...places].sort((a, b) => {
-  const nameA = getLocalizedText(a.name, lang);
-  const nameB = getLocalizedText(b.name, lang);
-  return nameA.localeCompare(nameB);
+    const nameA = getLocalizedText(a.name, lang);
+    const nameB = getLocalizedText(b.name, lang);
+    return nameA.localeCompare(nameB);
 });
 ---
 
-<BaseLayout title={t('places', 'title')}>
-  <div class="bg-gray-50 min-h-screen">
-    <div class="bg-white border-b">
-      <div class="container py-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">
-          {t('places', 'title')}
-        </h1>
-        <p class="text-gray-600">
-          {sortedPlaces.length} places to explore
-        </p>
-      </div>
-    </div>
-
-    <div class="bg-white border-b sticky top-16 z-40">
-      <div class="container py-4">
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="flex-1">
-            <SearchBar lang={lang} />
-          </div>
-        </div>
-        <div class="mt-4">
-          <CategoryFilter categories={categories} lang={lang} />
-        </div>
-      </div>
-    </div>
-
-    <div class="container py-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="places-grid">
-        {
-          sortedPlaces.map((place) => (
-            <div
-              data-categories={place.categories.join(',')}
-              data-search-name={getLocalizedText(place.name, lang)}
-              data-search-description={getLocalizedText(place.description, lang)}
-            >
-              <PlaceCard place={place} categories={categories} lang={lang} />
+<BaseLayout title={t("places", "title")}>
+    <div class="bg-gray-50 min-h-screen">
+        <div class="bg-white border-b">
+            <div class="container py-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                    {t("places", "title")}
+                </h1>
+                <p class="text-gray-600">
+                    {sortedPlaces.length} places to explore
+                </p>
             </div>
-          ))
-        }
-      </div>
+        </div>
 
-      <div id="no-results" class="hidden text-center py-12">
-        <p class="text-gray-500 text-lg">
-          {t('places', 'noResults')}
-        </p>
-      </div>
+        <div class="bg-white border-b sticky top-16 z-40">
+            <div class="container py-4">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <SearchBar lang={lang} />
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <CategoryFilter categories={categories} lang={lang} />
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-8">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                id="places-grid"
+            >
+                {
+                    sortedPlaces.map((place) => (
+                        <div
+                            data-categories={place.categories.join(",")}
+                            data-search-name={getLocalizedText(
+                                place.name,
+                                lang,
+                            )}
+                            data-search-description={getLocalizedText(
+                                place.description,
+                                lang,
+                            )}
+                        >
+                            <PlaceCard
+                                place={place}
+                                categories={categories}
+                                lang={lang}
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div id="no-results" class="hidden text-center py-12">
+                <p class="text-gray-500 text-lg">
+                    {t("places", "noResults")}
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </BaseLayout>

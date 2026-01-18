@@ -1,23 +1,28 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import MapLink from '../../components/MapLink.astro';
-import { defaultLang, useTranslations, getLocalizedText, getLocalizedPath } from '../../i18n/utils';
-import type { PlacesData, CategoriesData, Place } from '../../types';
-import { ArrowLeft, Clock, Phone, Globe, MapPin, Tag } from 'lucide-astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MapLink from "../../components/MapLink.astro";
+import {
+    defaultLang,
+    useTranslations,
+    getLocalizedText,
+    getLocalizedPath,
+} from "../../i18n/utils";
+import type { PlacesData, CategoriesData, Place } from "../../types";
+import { ArrowLeft, Clock, Phone, Globe, MapPin, Tag } from "lucide-astro";
 
-import placesData from '../../../data/places.json';
-import categoriesData from '../../../data/categories.json';
+import placesData from "../../../data/places.json";
+import categoriesData from "../../../data/categories.json";
 
 export function getStaticPaths() {
-  const { places } = placesData as PlacesData;
-  return places.map((place) => ({
-    params: { slug: place.slug },
-    props: { place },
-  }));
+    const { places } = placesData as PlacesData;
+    return places.map((place) => ({
+        params: { slug: place.slug },
+        props: { place },
+    }));
 }
 
 interface Props {
-  place: Place;
+    place: Place;
 }
 
 const { place } = Astro.props;
@@ -30,158 +35,177 @@ const name = getLocalizedText(place.name, lang);
 const description = getLocalizedText(place.description, lang);
 const address = getLocalizedText(place.address, lang);
 
-const placeCategories = categories.filter((c) => place.categories.includes(c.id));
+const placeCategories = categories.filter((c) =>
+    place.categories.includes(c.id),
+);
 ---
 
 <BaseLayout title={name}>
-  <div class="bg-gray-50 min-h-screen">
-    <div class="bg-white border-b">
-      <div class="container py-4">
-        <a
-          href={getLocalizedPath('/places', lang)}
-          class="inline-flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors"
-        >
-          <ArrowLeft class="w-4 h-4" />
-          {t('common', 'back')}
-        </a>
-      </div>
-    </div>
-
-    <div class="relative h-64 md:h-96 bg-gray-200">
-      {
-        place.images[0] ? (
-          <img
-            src={place.images[0]}
-            alt={name}
-            class="w-full h-full object-cover"
-          />
-        ) : (
-          <div class="w-full h-full flex items-center justify-center text-gray-400">
-            <MapPin class="w-24 h-24" />
-          </div>
-        )
-      }
-    </div>
-
-    <div class="container py-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-2">
-          <div class="flex flex-wrap gap-2 mb-4">
-            {
-              placeCategories.map((cat) => (
-                <span class="badge-green">
-                  {getLocalizedText(cat.name, lang)}
-                </span>
-              ))
-            }
-          </div>
-
-          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {name}
-          </h1>
-
-          <div class="prose prose-gray max-w-none">
-            <p class="text-lg text-gray-600 leading-relaxed">
-              {description}
-            </p>
-          </div>
-
-          {
-            place.tags.length > 0 && (
-              <div class="mt-6">
-                <div class="flex items-center gap-2 flex-wrap">
-                  <Tag class="w-4 h-4 text-gray-400" />
-                  {place.tags.map((tag) => (
-                    <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )
-          }
-        </div>
-
-        <div class="lg:col-span-1">
-          <div class="bg-white rounded-xl shadow-sm p-6 sticky top-24">
-            <h3 class="font-semibold text-gray-900 mb-4">
-              {t('places', 'address')}
-            </h3>
-
-            <div class="space-y-4">
-              <div class="flex gap-3">
-                <MapPin class="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
-                <p class="text-gray-600 text-sm">{address}</p>
-              </div>
-
-              {
-                place.openingHours && (
-                  <div class="flex gap-3">
-                    <Clock class="w-5 h-5 text-gray-400 flex-shrink-0" />
-                    <div>
-                      <p class="text-xs text-gray-400 uppercase tracking-wide">
-                        {t('places', 'openingHours')}
-                      </p>
-                      <p class="text-gray-600">{place.openingHours}</p>
-                    </div>
-                  </div>
-                )
-              }
-
-              {
-                place.contactPhone && (
-                  <div class="flex gap-3">
-                    <Phone class="w-5 h-5 text-gray-400 flex-shrink-0" />
-                    <div>
-                      <p class="text-xs text-gray-400 uppercase tracking-wide">
-                        {t('places', 'phone')}
-                      </p>
-                      <a
-                        href={`tel:${place.contactPhone}`}
-                        class="text-primary-600 hover:underline"
-                      >
-                        {place.contactPhone}
-                      </a>
-                    </div>
-                  </div>
-                )
-              }
-
-              {
-                place.website && (
-                  <div class="flex gap-3">
-                    <Globe class="w-5 h-5 text-gray-400 flex-shrink-0" />
-                    <div>
-                      <p class="text-xs text-gray-400 uppercase tracking-wide">
-                        {t('places', 'website')}
-                      </p>
-                      <a
-                        href={place.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-primary-600 hover:underline text-sm break-all"
-                      >
-                        {new URL(place.website).hostname}
-                      </a>
-                    </div>
-                  </div>
-                )
-              }
-
-              <div class="pt-4 border-t">
-                <p class="text-sm text-gray-500 mb-1">Price Range</p>
-                <p class="text-2xl font-semibold text-gray-900">
-                  {place.priceRange}
-                </p>
-              </div>
-
-              <div class="pt-4">
-                <MapLink url={place.mapUrl} lang={lang} class="w-full justify-center" />
-              </div>
+    <div class="bg-gray-50 min-h-screen">
+        <div class="bg-white border-b">
+            <div class="container py-4">
+                <a
+                    href={getLocalizedPath("/places", lang)}
+                    class="inline-flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors"
+                >
+                    <ArrowLeft class="w-4 h-4" />
+                    {t("common", "back")}
+                </a>
             </div>
-          </div>
         </div>
-      </div>
+
+        <div class="relative h-64 md:h-96 bg-gray-200">
+            {
+                place.images[0] ? (
+                    <img
+                        src={place.images[0]}
+                        alt={name}
+                        class="w-full h-full object-cover"
+                    />
+                ) : (
+                    <div class="w-full h-full flex items-center justify-center text-gray-400">
+                        <MapPin class="w-24 h-24" />
+                    </div>
+                )
+            }
+        </div>
+
+        <div class="container py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {
+                            placeCategories.map((cat) => (
+                                <span class="badge-green">
+                                    {getLocalizedText(cat.name, lang)}
+                                </span>
+                            ))
+                        }
+                    </div>
+
+                    <h1
+                        class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                    >
+                        {name}
+                    </h1>
+
+                    <div class="prose prose-gray max-w-none">
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            {description}
+                        </p>
+                    </div>
+
+                    {
+                        place.tags.length > 0 && (
+                            <div class="mt-6">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <Tag class="w-4 h-4 text-gray-400" />
+                                    {place.tags.map((tag) => (
+                                        <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                                            #{tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+
+                <div class="lg:col-span-1">
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-6 sticky top-24"
+                    >
+                        <h3 class="font-semibold text-gray-900 mb-4">
+                            {t("places", "address")}
+                        </h3>
+
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <MapPin
+                                    class="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5"
+                                />
+                                <p class="text-gray-600 text-sm">{address}</p>
+                            </div>
+
+                            {
+                                place.openingHours && (
+                                    <div class="flex gap-3">
+                                        <Clock class="w-5 h-5 text-gray-400 flex-shrink-0" />
+                                        <div>
+                                            <p class="text-xs text-gray-400 uppercase tracking-wide">
+                                                {t("places", "openingHours")}
+                                            </p>
+                                            <p class="text-gray-600">
+                                                {place.openingHours}
+                                            </p>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                place.contactPhone && (
+                                    <div class="flex gap-3">
+                                        <Phone class="w-5 h-5 text-gray-400 flex-shrink-0" />
+                                        <div>
+                                            <p class="text-xs text-gray-400 uppercase tracking-wide">
+                                                {t("places", "phone")}
+                                            </p>
+                                            <a
+                                                href={`tel:${place.contactPhone}`}
+                                                class="text-primary-600 hover:underline"
+                                            >
+                                                {place.contactPhone}
+                                            </a>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                place.website && (
+                                    <div class="flex gap-3">
+                                        <Globe class="w-5 h-5 text-gray-400 flex-shrink-0" />
+                                        <div>
+                                            <p class="text-xs text-gray-400 uppercase tracking-wide">
+                                                {t("places", "website")}
+                                            </p>
+                                            <a
+                                                href={place.website}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="text-primary-600 hover:underline text-sm break-all"
+                                            >
+                                                {
+                                                    new URL(place.website)
+                                                        .hostname
+                                                }
+                                            </a>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            <div class="pt-4 border-t">
+                                <p class="text-sm text-gray-500 mb-1">
+                                    Price Range
+                                </p>
+                                <p class="text-2xl font-semibold text-gray-900">
+                                    {place.priceRange}
+                                </p>
+                            </div>
+
+                            <div class="pt-4">
+                                <MapLink
+                                    url={place.mapUrl}
+                                    lang={lang}
+                                    class="w-full justify-center"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </BaseLayout>

@@ -1,133 +1,190 @@
 ---
-import { Phone, Clock, DollarSign, Bus, Train, Car } from 'lucide-astro';
-import { getLocalizedText, useTranslations, getLanguageName } from '../i18n/utils';
-import type { PublicTransport, Taxi, RentalCar, Language } from '../types';
+import { Phone, Clock, DollarSign, Bus, Train, Car } from "lucide-astro";
+import {
+    getLocalizedText,
+    useTranslations,
+    getLanguageName,
+} from "../i18n/utils";
+import type { PublicTransport, Taxi, RentalCar, Language } from "../types";
 
 interface Props {
-  type: 'taxi' | 'public' | 'rental';
-  data: Taxi | PublicTransport | RentalCar;
-  lang: Language;
+    type: "taxi" | "public" | "rental";
+    data: Taxi | PublicTransport | RentalCar;
+    lang: Language;
 }
 
 const { type, data, lang } = Astro.props;
 const t = useTranslations(lang);
 
-const isTaxi = type === 'taxi';
-const isPublic = type === 'public';
-const isRental = type === 'rental';
+const isTaxi = type === "taxi";
+const isPublic = type === "public";
+const isRental = type === "rental";
 
 const name = getLocalizedText(data.name, lang);
 
 function getTransportIcon(transportType: string) {
-  switch (transportType) {
-    case 'bus':
-    case 'minivan':
-      return Bus;
-    case 'train':
-      return Train;
-    default:
-      return Car;
-  }
+    switch (transportType) {
+        case "bus":
+        case "minivan":
+            return Bus;
+        case "train":
+            return Train;
+        default:
+            return Car;
+    }
 }
 ---
 
 <div class="bg-white rounded-lg border border-gray-200 p-4">
-  <div class="flex items-start gap-4">
-    <!-- Icon -->
-    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
-      {
-        isTaxi ? (
-          <Car class="w-5 h-5" />
-        ) : isPublic ? (
-          (() => {
-            const Icon = getTransportIcon((data as PublicTransport).type);
-            return <Icon class="w-5 h-5" />;
-          })()
-        ) : (
-          <Car class="w-5 h-5" />
-        )
-      }
+    <div class="flex items-start gap-4">
+        <!-- Icon -->
+        <div
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600"
+        >
+            {
+                isTaxi ? (
+                    <Car class="w-5 h-5" />
+                ) : isPublic ? (
+                    (() => {
+                        const Icon = getTransportIcon(
+                            (data as PublicTransport).type,
+                        );
+                        return <Icon class="w-5 h-5" />;
+                    })()
+                ) : (
+                    <Car class="w-5 h-5" />
+                )
+            }
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 min-w-0">
+            <h4 class="font-medium text-gray-900">{name}</h4>
+
+            {
+                isTaxi && (
+                    <div class="mt-2 space-y-1 text-sm text-gray-600">
+                        <a
+                            href={`tel:${(data as Taxi).phone}`}
+                            class="flex items-center gap-2 hover:text-primary-600"
+                        >
+                            <Phone class="w-4 h-4" />
+                            {(data as Taxi).phone}
+                        </a>
+                        <p class="flex items-center gap-2">
+                            <DollarSign class="w-4 h-4" />
+                            {getLocalizedText(
+                                (data as Taxi).priceEstimate,
+                                lang,
+                            )}
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            {t("transport", "languages")}:{" "}
+                            {(data as Taxi).languages
+                                .map((l) => getLanguageName(l as Language))
+                                .join(", ")}
+                        </p>
+                        {(data as Taxi).notes && (
+                            <p class="text-xs text-gray-500 mt-1">
+                                {getLocalizedText((data as Taxi).notes, lang)}
+                            </p>
+                        )}
+                    </div>
+                )
+            }
+
+            {
+                isPublic && (
+                    <div class="mt-2 space-y-1 text-sm text-gray-600">
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">
+                            {getLocalizedText(
+                                (data as PublicTransport).route,
+                                lang,
+                            )}
+                        </p>
+                        <div class="grid grid-cols-2 gap-2 mt-2">
+                            <div>
+                                <p class="text-xs text-gray-400">
+                                    {t("transport", "frequency")}
+                                </p>
+                                <p>
+                                    {getLocalizedText(
+                                        (data as PublicTransport).frequency,
+                                        lang,
+                                    )}
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">
+                                    {t("itineraries", "duration")}
+                                </p>
+                                <p>
+                                    {getLocalizedText(
+                                        (data as PublicTransport).duration,
+                                        lang,
+                                    )}
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">
+                                    {t("transport", "price")}
+                                </p>
+                                <p>
+                                    {getLocalizedText(
+                                        (data as PublicTransport).price,
+                                        lang,
+                                    )}
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">
+                                    {t("places", "openingHours")}
+                                </p>
+                                <p>
+                                    {(data as PublicTransport).operatingHours}
+                                </p>
+                            </div>
+                        </div>
+                        {(data as PublicTransport).notes && (
+                            <p class="text-xs text-gray-500 mt-2">
+                                {getLocalizedText(
+                                    (data as PublicTransport).notes,
+                                    lang,
+                                )}
+                            </p>
+                        )}
+                    </div>
+                )
+            }
+
+            {
+                isRental && (
+                    <div class="mt-2 space-y-1 text-sm text-gray-600">
+                        <a
+                            href={`tel:${(data as RentalCar).phone}`}
+                            class="flex items-center gap-2 hover:text-primary-600"
+                        >
+                            <Phone class="w-4 h-4" />
+                            {(data as RentalCar).phone}
+                        </a>
+                        <p class="flex items-center gap-2">
+                            <DollarSign class="w-4 h-4" />
+                            {getLocalizedText(
+                                (data as RentalCar).priceRange,
+                                lang,
+                            )}
+                        </p>
+                        {(data as RentalCar).notes && (
+                            <p class="text-xs text-gray-500 mt-1">
+                                {getLocalizedText(
+                                    (data as RentalCar).notes,
+                                    lang,
+                                )}
+                            </p>
+                        )}
+                    </div>
+                )
+            }
+        </div>
     </div>
-
-    <!-- Content -->
-    <div class="flex-1 min-w-0">
-      <h4 class="font-medium text-gray-900">{name}</h4>
-
-      {
-        isTaxi && (
-          <div class="mt-2 space-y-1 text-sm text-gray-600">
-            <a href={`tel:${(data as Taxi).phone}`} class="flex items-center gap-2 hover:text-primary-600">
-              <Phone class="w-4 h-4" />
-              {(data as Taxi).phone}
-            </a>
-            <p class="flex items-center gap-2">
-              <DollarSign class="w-4 h-4" />
-              {getLocalizedText((data as Taxi).priceEstimate, lang)}
-            </p>
-            <p class="text-xs text-gray-500">
-              {t('transport', 'languages')}: {(data as Taxi).languages.map((l) => getLanguageName(l as Language)).join(', ')}
-            </p>
-            {(data as Taxi).notes && (
-              <p class="text-xs text-gray-500 mt-1">
-                {getLocalizedText((data as Taxi).notes, lang)}
-              </p>
-            )}
-          </div>
-        )
-      }
-
-      {
-        isPublic && (
-          <div class="mt-2 space-y-1 text-sm text-gray-600">
-            <p class="text-xs text-gray-500 uppercase tracking-wide">
-              {getLocalizedText((data as PublicTransport).route, lang)}
-            </p>
-            <div class="grid grid-cols-2 gap-2 mt-2">
-              <div>
-                <p class="text-xs text-gray-400">{t('transport', 'frequency')}</p>
-                <p>{getLocalizedText((data as PublicTransport).frequency, lang)}</p>
-              </div>
-              <div>
-                <p class="text-xs text-gray-400">{t('itineraries', 'duration')}</p>
-                <p>{getLocalizedText((data as PublicTransport).duration, lang)}</p>
-              </div>
-              <div>
-                <p class="text-xs text-gray-400">{t('transport', 'price')}</p>
-                <p>{getLocalizedText((data as PublicTransport).price, lang)}</p>
-              </div>
-              <div>
-                <p class="text-xs text-gray-400">{t('places', 'openingHours')}</p>
-                <p>{(data as PublicTransport).operatingHours}</p>
-              </div>
-            </div>
-            {(data as PublicTransport).notes && (
-              <p class="text-xs text-gray-500 mt-2">
-                {getLocalizedText((data as PublicTransport).notes, lang)}
-              </p>
-            )}
-          </div>
-        )
-      }
-
-      {
-        isRental && (
-          <div class="mt-2 space-y-1 text-sm text-gray-600">
-            <a href={`tel:${(data as RentalCar).phone}`} class="flex items-center gap-2 hover:text-primary-600">
-              <Phone class="w-4 h-4" />
-              {(data as RentalCar).phone}
-            </a>
-            <p class="flex items-center gap-2">
-              <DollarSign class="w-4 h-4" />
-              {getLocalizedText((data as RentalCar).priceRange, lang)}
-            </p>
-            {(data as RentalCar).notes && (
-              <p class="text-xs text-gray-500 mt-1">
-                {getLocalizedText((data as RentalCar).notes, lang)}
-              </p>
-            )}
-          </div>
-        )
-      }
-    </div>
-  </div>
 </div>

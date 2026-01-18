@@ -1,95 +1,103 @@
 ---
-import { MapPin, Clock, DollarSign } from 'lucide-astro';
-import { getLocalizedText, getLocalizedPath } from '../i18n/utils';
-import type { Place, Category, Language } from '../types';
+import { MapPin, Clock, DollarSign } from "lucide-astro";
+import { getLocalizedText, getLocalizedPath } from "../i18n/utils";
+import type { Place, Category, Language } from "../types";
 
 interface Props {
-  place: Place;
-  categories: Category[];
-  lang: Language;
+    place: Place;
+    categories: Category[];
+    lang: Language;
 }
 
 const { place, categories, lang } = Astro.props;
 
 const name = getLocalizedText(place.name, lang);
 const description = getLocalizedText(place.description, lang);
-const placeCategories = categories.filter((c) => place.categories.includes(c.id));
+const placeCategories = categories.filter((c) =>
+    place.categories.includes(c.id),
+);
 ---
 
 <article class="card group">
-  <a href={getLocalizedPath(`/places/${place.slug}`, lang)} class="block">
-    <!-- Image -->
-    <div class="relative h-48 bg-gray-200 overflow-hidden">
-      {
-        place.images[0] ? (
-          <img
-            src={place.images[0]}
-            alt={name}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
-        ) : (
-          <div class="w-full h-full flex items-center justify-center text-gray-400">
-            <MapPin class="w-12 h-12" />
-          </div>
-        )
-      }
+    <a href={getLocalizedPath(`/places/${place.slug}`, lang)} class="block">
+        <!-- Image -->
+        <div class="relative h-48 bg-gray-200 overflow-hidden">
+            {
+                place.images[0] ? (
+                    <img
+                        src={place.images[0]}
+                        alt={name}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                    />
+                ) : (
+                    <div class="w-full h-full flex items-center justify-center text-gray-400">
+                        <MapPin class="w-12 h-12" />
+                    </div>
+                )
+            }
 
-      <!-- Price Range Badge -->
-      <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-sm font-medium text-gray-700">
-        {place.priceRange}
-      </div>
-    </div>
+            <!-- Price Range Badge -->
+            <div
+                class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-sm font-medium text-gray-700"
+            >
+                {place.priceRange}
+            </div>
+        </div>
 
-    <!-- Content -->
-    <div class="p-4">
-      <!-- Categories -->
-      <div class="flex flex-wrap gap-1 mb-2">
-        {
-          placeCategories.slice(0, 2).map((cat) => (
-            <span class="badge-green">
-              {getLocalizedText(cat.name, lang)}
-            </span>
-          ))
-        }
-      </div>
+        <!-- Content -->
+        <div class="p-4">
+            <!-- Categories -->
+            <div class="flex flex-wrap gap-1 mb-2">
+                {
+                    placeCategories
+                        .slice(0, 2)
+                        .map((cat) => (
+                            <span class="badge-green">
+                                {getLocalizedText(cat.name, lang)}
+                            </span>
+                        ))
+                }
+            </div>
 
-      <!-- Title -->
-      <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors mb-2 line-clamp-1">
-        {name}
-      </h3>
+            <!-- Title -->
+            <h3
+                class="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors mb-2 line-clamp-1"
+            >
+                {name}
+            </h3>
 
-      <!-- Description -->
-      <p class="text-sm text-gray-600 line-clamp-2 mb-3">
-        {description}
-      </p>
+            <!-- Description -->
+            <p class="text-sm text-gray-600 line-clamp-2 mb-3">
+                {description}
+            </p>
 
-      <!-- Meta -->
-      <div class="flex items-center gap-4 text-xs text-gray-500">
-        {
-          place.openingHours && (
-            <span class="flex items-center gap-1">
-              <Clock class="w-3.5 h-3.5" />
-              {place.openingHours}
-            </span>
-          )
-        }
-      </div>
-    </div>
-  </a>
+            <!-- Meta -->
+            <div class="flex items-center gap-4 text-xs text-gray-500">
+                {
+                    place.openingHours && (
+                        <span class="flex items-center gap-1">
+                            <Clock class="w-3.5 h-3.5" />
+                            {place.openingHours}
+                        </span>
+                    )
+                }
+            </div>
+        </div>
+    </a>
 </article>
 
 <style>
-  .line-clamp-1 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+    .line-clamp-1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 </style>

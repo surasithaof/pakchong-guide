@@ -1,32 +1,44 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import MapLink from '../../../components/MapLink.astro';
-import { languages, defaultLang, useTranslations, getLocalizedText, getLocalizedPath } from '../../../i18n/utils';
-import type { Language, PlacesData, ItinerariesData, Itinerary, Place } from '../../../types';
-import { ArrowLeft, Calendar, MapPin, Clock, ArrowRight } from 'lucide-astro';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MapLink from "../../../components/MapLink.astro";
+import {
+    languages,
+    defaultLang,
+    useTranslations,
+    getLocalizedText,
+    getLocalizedPath,
+} from "../../../i18n/utils";
+import type {
+    Language,
+    PlacesData,
+    ItinerariesData,
+    Itinerary,
+    Place,
+} from "../../../types";
+import { ArrowLeft, Calendar, MapPin, Clock, ArrowRight } from "lucide-astro";
 
-import placesData from '../../../../data/places.json';
-import itinerariesData from '../../../../data/itineraries.json';
+import placesData from "../../../../data/places.json";
+import itinerariesData from "../../../../data/itineraries.json";
 
 export function getStaticPaths() {
-  const { itineraries } = itinerariesData as ItinerariesData;
-  const paths = [];
+    const { itineraries } = itinerariesData as ItinerariesData;
+    const paths = [];
 
-  for (const lang of languages) {
-    if (lang.code === defaultLang) continue;
-    for (const itinerary of itineraries) {
-      paths.push({
-        params: { lang: lang.code, slug: itinerary.slug },
-        props: { itinerary },
-      });
+    for (const lang of languages) {
+        if (lang.code === defaultLang) continue;
+        for (const itinerary of itineraries) {
+            paths.push({
+                params: { lang: lang.code, slug: itinerary.slug },
+                props: { itinerary },
+            });
+        }
     }
-  }
 
-  return paths;
+    return paths;
 }
 
 interface Props {
-  itinerary: Itinerary;
+    itinerary: Itinerary;
 }
 
 const { itinerary } = Astro.props;
@@ -39,152 +51,196 @@ const title = getLocalizedText(itinerary.title, lang);
 const description = getLocalizedText(itinerary.description, lang);
 const duration = getLocalizedText(itinerary.duration, lang);
 
-const difficultyLabel = t('itineraries', 'difficultyLevels', itinerary.difficulty);
+const difficultyLabel = t(
+    "itineraries",
+    "difficultyLevels",
+    itinerary.difficulty,
+);
 
 const difficultyColor = {
-  easy: 'bg-green-100 text-green-800',
-  moderate: 'bg-yellow-100 text-yellow-800',
-  challenging: 'bg-red-100 text-red-800',
+    easy: "bg-green-100 text-green-800",
+    moderate: "bg-yellow-100 text-yellow-800",
+    challenging: "bg-red-100 text-red-800",
 }[itinerary.difficulty];
 
-const stopsByDay = itinerary.stops.reduce((acc, stop) => {
-  if (!acc[stop.day]) {
-    acc[stop.day] = [];
-  }
-  acc[stop.day].push(stop);
-  return acc;
-}, {} as Record<number, typeof itinerary.stops>);
+const stopsByDay = itinerary.stops.reduce(
+    (acc, stop) => {
+        if (!acc[stop.day]) {
+            acc[stop.day] = [];
+        }
+        acc[stop.day].push(stop);
+        return acc;
+    },
+    {} as Record<number, typeof itinerary.stops>,
+);
 
-const days = Object.keys(stopsByDay).map(Number).sort((a, b) => a - b);
+const days = Object.keys(stopsByDay)
+    .map(Number)
+    .sort((a, b) => a - b);
 
 function getPlace(placeId: string): Place | undefined {
-  return places.find((p) => p.id === placeId);
+    return places.find((p) => p.id === placeId);
 }
 ---
 
 <BaseLayout title={title}>
-  <div class="bg-gray-50 min-h-screen">
-    <div class="bg-white border-b">
-      <div class="container py-4">
-        <a
-          href={getLocalizedPath('/itineraries', lang)}
-          class="inline-flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors"
-        >
-          <ArrowLeft class="w-4 h-4" />
-          {t('common', 'back')}
-        </a>
-      </div>
-    </div>
-
-    <div class="bg-white border-b">
-      <div class="container py-8">
-        <div class="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {title}
-            </h1>
-            <div class="flex flex-wrap items-center gap-4 text-gray-600">
-              <span class="flex items-center gap-2">
-                <Calendar class="w-5 h-5" />
-                {duration}
-              </span>
-              <span class="flex items-center gap-2">
-                <MapPin class="w-5 h-5" />
-                {itinerary.stops.length} {t('itineraries', 'stops')}
-              </span>
+    <div class="bg-gray-50 min-h-screen">
+        <div class="bg-white border-b">
+            <div class="container py-4">
+                <a
+                    href={getLocalizedPath("/itineraries", lang)}
+                    class="inline-flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors"
+                >
+                    <ArrowLeft class="w-4 h-4" />
+                    {t("common", "back")}
+                </a>
             </div>
-          </div>
-          <span class:list={['badge text-sm', difficultyColor]}>
-            {difficultyLabel}
-          </span>
         </div>
 
-        <p class="mt-6 text-lg text-gray-600 max-w-3xl">
-          {description}
-        </p>
-      </div>
-    </div>
-
-    <div class="container py-8">
-      {
-        days.map((day) => (
-          <div class="mb-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span class="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                {day}
-              </span>
-              {t('itineraries', 'day')} {day}
-            </h2>
-
-            <div class="space-y-4 ml-4 border-l-2 border-gray-200 pl-8">
-              {stopsByDay[day]
-                .sort((a, b) => a.order - b.order)
-                .map((stop, idx) => {
-                  const place = getPlace(stop.placeId);
-                  if (!place) return null;
-
-                  return (
-                    <div class="relative">
-                      <div class="absolute -left-[2.625rem] w-4 h-4 bg-primary-100 border-2 border-primary-600 rounded-full" />
-
-                      <div class="bg-white rounded-xl shadow-sm p-6">
-                        <div class="flex flex-col md:flex-row md:items-start gap-4">
-                          <div class="w-full md:w-32 h-24 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
-                            {place.images[0] ? (
-                              <img
-                                src={place.images[0]}
-                                alt={getLocalizedText(place.name, lang)}
-                                class="w-full h-full object-cover"
-                              />
-                            ) : (
-                              <div class="w-full h-full flex items-center justify-center text-gray-400">
-                                <MapPin class="w-8 h-8" />
-                              </div>
-                            )}
-                          </div>
-
-                          <div class="flex-1">
-                            <div class="flex items-start justify-between gap-4">
-                              <div>
-                                <a
-                                  href={getLocalizedPath(`/places/${place.slug}`, lang)}
-                                  class="text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors"
-                                >
-                                  {getLocalizedText(place.name, lang)}
-                                </a>
-                                <p class="text-sm text-gray-500 flex items-center gap-1 mt-1">
-                                  <Clock class="w-4 h-4" />
-                                  {stop.timeSlot}
-                                </p>
-                              </div>
-                              <MapLink url={place.mapUrl} lang={lang} class="hidden md:flex" />
-                            </div>
-
-                            {stop.notes && (
-                              <p class="mt-3 text-gray-600 text-sm">
-                                {getLocalizedText(stop.notes, lang)}
-                              </p>
-                            )}
-
-                            <div class="mt-3 md:hidden">
-                              <MapLink url={place.mapUrl} lang={lang} class="w-full justify-center text-sm" />
-                            </div>
-                          </div>
+        <div class="bg-white border-b">
+            <div class="container py-8">
+                <div class="flex flex-wrap items-start justify-between gap-4">
+                    <div>
+                        <h1
+                            class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                        >
+                            {title}
+                        </h1>
+                        <div
+                            class="flex flex-wrap items-center gap-4 text-gray-600"
+                        >
+                            <span class="flex items-center gap-2">
+                                <Calendar class="w-5 h-5" />
+                                {duration}
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <MapPin class="w-5 h-5" />
+                                {itinerary.stops.length}
+                                {t("itineraries", "stops")}
+                            </span>
                         </div>
-                      </div>
-
-                      {idx < stopsByDay[day].length - 1 && (
-                        <div class="flex items-center justify-center py-2 text-gray-400">
-                          <ArrowRight class="w-4 h-4 rotate-90" />
-                        </div>
-                      )}
                     </div>
-                  );
-                })}
+                    <span class:list={["badge text-sm", difficultyColor]}>
+                        {difficultyLabel}
+                    </span>
+                </div>
+
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl">
+                    {description}
+                </p>
             </div>
-          </div>
-        ))
-      }
+        </div>
+
+        <div class="container py-8">
+            {
+                days.map((day) => (
+                    <div class="mb-8">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                {day}
+                            </span>
+                            {t("itineraries", "day")} {day}
+                        </h2>
+
+                        <div class="space-y-4 ml-4 border-l-2 border-gray-200 pl-8">
+                            {stopsByDay[day]
+                                .sort((a, b) => a.order - b.order)
+                                .map((stop, idx) => {
+                                    const place = getPlace(stop.placeId);
+                                    if (!place) return null;
+
+                                    return (
+                                        <div class="relative">
+                                            <div class="absolute -left-[2.625rem] w-4 h-4 bg-primary-100 border-2 border-primary-600 rounded-full" />
+
+                                            <div class="bg-white rounded-xl shadow-sm p-6">
+                                                <div class="flex flex-col md:flex-row md:items-start gap-4">
+                                                    <div class="w-full md:w-32 h-24 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+                                                        {place.images[0] ? (
+                                                            <img
+                                                                src={
+                                                                    place
+                                                                        .images[0]
+                                                                }
+                                                                alt={getLocalizedText(
+                                                                    place.name,
+                                                                    lang,
+                                                                )}
+                                                                class="w-full h-full object-cover"
+                                                            />
+                                                        ) : (
+                                                            <div class="w-full h-full flex items-center justify-center text-gray-400">
+                                                                <MapPin class="w-8 h-8" />
+                                                            </div>
+                                                        )}
+                                                    </div>
+
+                                                    <div class="flex-1">
+                                                        <div class="flex items-start justify-between gap-4">
+                                                            <div>
+                                                                <a
+                                                                    href={getLocalizedPath(
+                                                                        `/places/${place.slug}`,
+                                                                        lang,
+                                                                    )}
+                                                                    class="text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors"
+                                                                >
+                                                                    {getLocalizedText(
+                                                                        place.name,
+                                                                        lang,
+                                                                    )}
+                                                                </a>
+                                                                <p class="text-sm text-gray-500 flex items-center gap-1 mt-1">
+                                                                    <Clock class="w-4 h-4" />
+                                                                    {
+                                                                        stop.timeSlot
+                                                                    }
+                                                                </p>
+                                                            </div>
+                                                            <MapLink
+                                                                url={
+                                                                    place.mapUrl
+                                                                }
+                                                                lang={lang}
+                                                                class="hidden md:flex"
+                                                            />
+                                                        </div>
+
+                                                        {stop.notes && (
+                                                            <p class="mt-3 text-gray-600 text-sm">
+                                                                {getLocalizedText(
+                                                                    stop.notes,
+                                                                    lang,
+                                                                )}
+                                                            </p>
+                                                        )}
+
+                                                        <div class="mt-3 md:hidden">
+                                                            <MapLink
+                                                                url={
+                                                                    place.mapUrl
+                                                                }
+                                                                lang={lang}
+                                                                class="w-full justify-center text-sm"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {idx <
+                                                stopsByDay[day].length - 1 && (
+                                                <div class="flex items-center justify-center py-2 text-gray-400">
+                                                    <ArrowRight class="w-4 h-4 rotate-90" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
     </div>
-  </div>
 </BaseLayout>
